@@ -27,7 +27,7 @@ DROP TABLE IF EXISTS `art_photos`;
 CREATE TABLE IF NOT EXISTS `art_photos` (
   `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `photo_id` int(11) UNSIGNED NOT NULL,
-  `gallery_id` int(11) UNSIGNED NOT NULL,
+  `art_id` int(11) UNSIGNED NOT NULL,
   PRIMARY KEY (`id`)
 );
 
