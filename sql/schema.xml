@@ -1,0 +1,48 @@
+  
+
+<schema>
+  <table name="art_photos">
+    <field name="id" type="int" primary-key="true" />
+    <field name="photo_id" type="int" />
+    <field name="art_id" type="int" />
+  </table>
+  <table name="artists">
+    <field name="id" type="int" primary-key="true" />
+    <field name="photo_id" type="int" />
+    <field name="name" type="varchar" />
+    <field name="biography" type="text" />
+    <field name="phone" type="varchar" />
+    <field name="email" type="varchar" />
+  </table>
+  <table name="photos">
+    <field name="id" type="int" primary-key="true" />
+    <field name="thumb_path" type="varchar" />
+    <field name="full_size_path" type="varchar" />
+  </table>
+  <table name="art_types">
+    <field name="id" type="int" primary-key="true" />
+    <field name="name" type="varchar" />
+  </table>
+  <table name="art">
+    <field name="id" type="int" primary-key="true" />
+    <field name="artist_id" type="int" />
+    <field name="gallery_id" type="int" />
+    <field name="art_type_id" type="int" />
+    <field name="name" type="varchar" />
+    <field name="description" type="text" />
+    <field name="medium" type="varchar" />
+    <field name="price" type="varchar" />
+  </table>
+  <table name="galleries">
+    <field name="id" type="int" primary-key="true" />
+    <field name="name" type="varchar" />
+    <field name="phone" type="varchar" />
+    <field name="fax" type="varchar" />
+    <field name="street_address_1" type="varchar" />
+    <field name="street_address_2" type="varchar" />
+    <field name="city" type="varchar" />
+    <field name="state" type="varchar" />
+    <field name="zip_code" type="varchar" />
+    <field name="google_map_url" type="varchar" />
+  </table>
+</schema>
