@@ -2,7 +2,7 @@
 require_once( "db_connect.php" );
 
 class Galleries {
-
+				
     var $id;
     var $name;
     var $phone;

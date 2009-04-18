@@ -7,9 +7,26 @@ class Photos {
     var $thumb_path;
     var $full_size_path;
 
-    function Photos()
+    function Photos($attributes = NULL)
     {
-        $this->id = null;
+			switch( gettype($attributes) )
+			{
+				case "array":
+					foreach($attributes as $key => $value) 
+					{
+						$this->$key= mysql_real_escape_string(trim($value));
+					}
+					$this->insertRecord();
+				break;
+
+				case "integer":
+					$id= $attribute;
+					$this->load($id);
+				break;
+
+				default:
+					$this->id = NULL;
+			}
     }
 
     function load( $id )
@@ -18,10 +35,17 @@ class Photos {
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
         $row = mysql_fetch_array( $result );
 
-        $this->id = $row['id'];
-        $this->thumb_path = $row['thumb_path'];
-        $this->full_size_path = $row['full_size_path'];
+				foreach($row as $key => $value) 
+				{
+					$this->$key = $value;
+				}
+
     }
+
+		function to_s()
+		{
+			return $this->thumb_path . "<br />" . $this->full_size_path ;
+		}
 
     function get_id()
     {
