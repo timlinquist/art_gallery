@@ -1,16 +1,13 @@
 <?php
 require_once( "db_connect.php" );
 
-class Artists {
+class ArtPhotos {
 
     var $id;
     var $photo_id;
-    var $name;
-    var $biography;
-    var $phone;
-    var $email;
+    var $art_id;
 
-    function Artists($attributes = NULL)
+    function ArtPhotos($attributes = NULL)
     {
 			switch( gettype($attributes) )
 			{
@@ -34,7 +31,7 @@ class Artists {
 
     function load( $id )
     {
-        $query = "SELECT * FROM artists WHERE id = " . $id;
+        $query = "SELECT * FROM art_photos WHERE id = " . $id;
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
         $row = mysql_fetch_array( $result );
 				foreach($row as $key => $value) 
@@ -63,44 +60,14 @@ class Artists {
         $this->photo_id = $val;
     }
 
-    function get_name()
+    function get_art_id()
     {
-        return $this->name;
+        return $this->art_id;
     }
 
-    function set_name( $val )
+    function set_art_id( $val )
     {
-        $this->name = $val;
-    }
-
-    function get_biography()
-    {
-        return $this->biography;
-    }
-
-    function set_biography( $val )
-    {
-        $this->biography = $val;
-    }
-
-    function get_phone()
-    {
-        return $this->phone;
-    }
-
-    function set_phone( $val )
-    {
-        $this->phone = $val;
-    }
-
-    function get_email()
-    {
-        return $this->email;
-    }
-
-    function set_email( $val )
-    {
-        $this->email = $val;
+        $this->art_id = $val;
     }
 
 
@@ -114,27 +81,27 @@ class Artists {
 
     function insertRecord()
     {
-        $query = 'INSERT INTO artists ( id, photo_id, name, biography, phone, email ) VALUES ( 0, "%s", "%s", "%s", "%s", "%s" )';
-        $query = sprintf( $query, $this->photo_id, $this->name, $this->biography, $this->phone, $this->email );
+        $query = 'INSERT INTO art_photos ( id, photo_id, art_id ) VALUES ( 0, "%s", "%s" )';
+        $query = sprintf( $query, $this->photo_id, $this->art_id );
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
     }
 
     function updateRecord()
     {
-        $query = 'UPDATE artists SET photo_id="%s", name="%s", biography="%s", phone="%s", email="%s" WHERE id = %s';
-        $query = sprintf( $query, $this->photo_id, $this->name, $this->biography, $this->phone, $this->email, $this->id );
+        $query = 'UPDATE art_photos SET photo_id="%s", art_id="%s" WHERE id = %s';
+        $query = sprintf( $query, $this->photo_id, $this->art_id, $this->id );
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
     }
 
     function deleteRecord( $id )
     {
-        $query = "DELETE FROM artists WHERE id = $id";
+        $query = "DELETE FROM art_photos WHERE id = $id";
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
     }
 
     function get_num_rows()
     {
-       $temp = mysql_query( "SELECT SQL_CALC_FOUND_ROWS * FROM artists LIMIT 1" );
+       $temp = mysql_query( "SELECT SQL_CALC_FOUND_ROWS * FROM art_photos LIMIT 1" );
        $result = mysql_query( "SELECT FOUND_ROWS()" );
        $total = mysql_fetch_row( $result );
        return $total[0];
@@ -143,7 +110,7 @@ class Artists {
     function get_ids()
     {
         $ids = array();
-        $query = "SELECT id FROM artists";
+        $query = "SELECT id FROM art_photos";
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
         while( $row = mysql_fetch_array( $result ) )
             $ids[] = $row['id'];
