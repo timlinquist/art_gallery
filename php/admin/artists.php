@@ -5,13 +5,13 @@
 
 	if( count($artists) > 0 )
 	{
-		require( "../class.ArtistDisplay.php" );		
+		include( "../class.ArtistDisplay.php" );		
 		$artist_display= new ArtistDisplay();		
 		$artist_display->display_artists( $artists );
 	}
 	else
 	{
-		echo "<p>No artists are listed at this time.";		
+		echo "<p>No artists are listed at this time.</p>";		
 	}
 ?>
 

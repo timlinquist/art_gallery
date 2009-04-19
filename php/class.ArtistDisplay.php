@@ -7,7 +7,9 @@
 
 		public function display_artist( $artist )
 		{
+			echo "<pre>";
 			print_r($artist);
+			echo "</pre>";
 		}
 	}
 ?>
