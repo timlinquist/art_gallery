@@ -1,26 +1,42 @@
 <?php
 require_once( "db_connect.php" );
 
-class Art_photos {
+class ArtTypes {
 
     var $id;
-    var $photo_id;
-    var $art_id;
+    var $name;
 
-    function Art_photos()
+    function ArtTypes($attributes = NULL)
     {
-        $this->id = null;
+			switch( gettype($attributes) )
+			{
+				case "array":
+					foreach($attributes as $key => $value) 
+					{
+						$this->$key= mysql_real_escape_string(trim($value));
+					}
+					$this->insertRecord();
+				break;
+
+				case "integer":
+					$id= $attribute;
+					$this->load($id);
+				break;
+
+				default:
+					$this->id = NULL;
+			}
     }
 
     function load( $id )
     {
-        $query = "SELECT * FROM art_photos WHERE id = " . $id;
+        $query = "SELECT * FROM art_types WHERE id = " . $id;
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
         $row = mysql_fetch_array( $result );
-
-        $this->id = $row['id'];
-        $this->photo_id = $row['photo_id'];
-        $this->art_id = $row['art_id'];
+				foreach($row as $key => $value) 
+				{
+					$this->$key = $value;
+				}
     }
 
     function get_id()
@@ -33,24 +49,14 @@ class Art_photos {
         $this->id = $val;
     }
 
-    function get_photo_id()
+    function get_name()
     {
-        return $this->photo_id;
+        return $this->name;
     }
 
-    function set_photo_id( $val )
+    function set_name( $val )
     {
-        $this->photo_id = $val;
-    }
-
-    function get_art_id()
-    {
-        return $this->art_id;
-    }
-
-    function set_art_id( $val )
-    {
-        $this->art_id = $val;
+        $this->name = $val;
     }
 
 
@@ -64,27 +70,27 @@ class Art_photos {
 
     function insertRecord()
     {
-        $query = 'INSERT INTO art_photos ( id, photo_id, art_id ) VALUES ( 0, "%s", "%s" )';
-        $query = sprintf( $query, $this->photo_id, $this->art_id );
+        $query = 'INSERT INTO art_types ( id, name ) VALUES ( 0, "%s" )';
+        $query = sprintf( $query, $this->name );
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
     }
 
     function updateRecord()
     {
-        $query = 'UPDATE art_photos SET photo_id="%s", art_id="%s" WHERE id = %s';
-        $query = sprintf( $query, $this->photo_id, $this->art_id, $this->id );
+        $query = 'UPDATE art_types SET name="%s" WHERE id = %s';
+        $query = sprintf( $query, $this->name, $this->id );
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
     }
 
     function deleteRecord( $id )
     {
-        $query = "DELETE FROM art_photos WHERE id = $id";
+        $query = "DELETE FROM art_types WHERE id = $id";
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
     }
 
     function get_num_rows()
     {
-       $temp = mysql_query( "SELECT SQL_CALC_FOUND_ROWS * FROM art_photos LIMIT 1" );
+       $temp = mysql_query( "SELECT SQL_CALC_FOUND_ROWS * FROM art_types LIMIT 1" );
        $result = mysql_query( "SELECT FOUND_ROWS()" );
        $total = mysql_fetch_row( $result );
        return $total[0];
@@ -93,13 +99,12 @@ class Art_photos {
     function get_ids()
     {
         $ids = array();
-        $query = "SELECT id FROM art_photos";
+        $query = "SELECT id FROM art_types";
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
         while( $row = mysql_fetch_array( $result ) )
             $ids[] = $row['id'];
         return $ids;
     }
 }
-
 
 ?>

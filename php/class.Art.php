@@ -12,9 +12,26 @@ class Art {
     var $medium;
     var $price;
 
-    function Art()
+    function Art($attributes = NULL)
     {
-        $this->id = null;
+			switch( gettype($attributes) )
+			{
+				case "array":
+					foreach($attributes as $key => $value) 
+					{
+						$this->$key= mysql_real_escape_string(trim($value));
+					}
+					$this->insertRecord();
+				break;
+
+				case "integer":
+					$id= $attribute;
+					$this->load($id);
+				break;
+
+				default:
+					$this->id = NULL;
+			}
     }
 
     function load( $id )
@@ -22,15 +39,10 @@ class Art {
         $query = "SELECT * FROM art WHERE id = " . $id;
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
         $row = mysql_fetch_array( $result );
-
-        $this->id = $row['id'];
-        $this->artist_id = $row['artist_id'];
-        $this->gallery_id = $row['gallery_id'];
-        $this->art_type_id = $row['art_type_id'];
-        $this->name = $row['name'];
-        $this->description = $row['description'];
-        $this->medium = $row['medium'];
-        $this->price = $row['price'];
+				foreach($row as $key => $value) 
+				{
+					$this->$key = $value;
+				}
     }
 
     function get_id()
@@ -160,6 +172,5 @@ class Art {
         return $ids;
     }
 }
-
 
 ?>

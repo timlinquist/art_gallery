@@ -34,18 +34,11 @@ class Photos {
         $query = "SELECT * FROM photos WHERE id = " . $id;
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
         $row = mysql_fetch_array( $result );
-
 				foreach($row as $key => $value) 
 				{
 					$this->$key = $value;
 				}
-
     }
-
-		function to_s()
-		{
-			return $this->thumb_path . "<br />" . $this->full_size_path ;
-		}
 
     function get_id()
     {
