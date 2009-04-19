@@ -10,9 +10,26 @@ class Artists {
     var $phone;
     var $email;
 
-    function Artists()
+    function Artists($attributes = NULL)
     {
-        $this->id = null;
+			switch( gettype($attributes) )
+			{
+				case "array":
+					foreach($attributes as $key => $value) 
+					{
+						$this->$key= mysql_real_escape_string(trim($value));
+					}
+					$this->insertRecord();
+				break;
+
+				case "integer":
+					$id= $attribute;
+					$this->load($id);
+				break;
+
+				default:
+					$this->id = NULL;
+			}
     }
 
     function load( $id )
@@ -20,13 +37,10 @@ class Artists {
         $query = "SELECT * FROM artists WHERE id = " . $id;
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
         $row = mysql_fetch_array( $result );
-
-        $this->id = $row['id'];
-        $this->photo_id = $row['photo_id'];
-        $this->name = $row['name'];
-        $this->biography = $row['biography'];
-        $this->phone = $row['phone'];
-        $this->email = $row['email'];
+				foreach($row as $key => $value) 
+				{
+					$this->$key = $value;
+				}
     }
 
     function get_id()
@@ -136,7 +150,5 @@ class Artists {
         return $ids;
     }
 }
-
-
 
 ?>

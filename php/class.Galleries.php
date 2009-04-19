@@ -2,7 +2,7 @@
 require_once( "db_connect.php" );
 
 class Galleries {
-				
+
     var $id;
     var $name;
     var $phone;
@@ -14,9 +14,26 @@ class Galleries {
     var $zip_code;
     var $google_map_url;
 
-    function Galleries()
+    function Galleries($attributes = NULL)
     {
-        $this->id = null;
+			switch( gettype($attributes) )
+			{
+				case "array":
+					foreach($attributes as $key => $value) 
+					{
+						$this->$key= mysql_real_escape_string(trim($value));
+					}
+					$this->insertRecord();
+				break;
+
+				case "integer":
+					$id= $attribute;
+					$this->load($id);
+				break;
+
+				default:
+					$this->id = NULL;
+			}
     }
 
     function load( $id )
@@ -24,17 +41,10 @@ class Galleries {
         $query = "SELECT * FROM galleries WHERE id = " . $id;
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
         $row = mysql_fetch_array( $result );
-
-        $this->id = $row['id'];
-        $this->name = $row['name'];
-        $this->phone = $row['phone'];
-        $this->fax = $row['fax'];
-        $this->street_address_1 = $row['street_address_1'];
-        $this->street_address_2 = $row['street_address_2'];
-        $this->city = $row['city'];
-        $this->state = $row['state'];
-        $this->zip_code = $row['zip_code'];
-        $this->google_map_url = $row['google_map_url'];
+				foreach($row as $key => $value) 
+				{
+					$this->$key = $value;
+				}
     }
 
     function get_id()
