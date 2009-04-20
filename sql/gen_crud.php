@@ -80,10 +80,11 @@ foreach( $tables as $table )
     $updfields[] = '$this->'.$pk;
     $updfields = join( ", ", $updfields );
     $updsets = join( ", ", $updsets );
+    $class_name = eregi_replace( " ", "", ucwords( eregi_replace( "_", " ", $table['name'] ) ) );  // camel-case
 
-    ?>
+?>
 
-class <?php echo( ucfirst( $table['name'] ) ) ?> {
+class <?php echo $class_name; ?> {
 
 <?php
     foreach( $table['fields'] as $field )
@@ -94,9 +95,25 @@ class <?php echo( ucfirst( $table['name'] ) ) ?> {
     }
 ?>
 
-    function <?php echo( ucfirst( $table['name'] ) ) ?>()
+    function __construct($attributes = NULL)
     {
-        $this->id = null;
+			switch( gettype($attributes) )
+			{
+				case "array":
+					foreach($attributes as $key => $value) 
+					{
+						$this->$key= mysql_real_escape_string(trim($value));
+					}
+				break;
+
+				case "integer":
+					$id= $attribute;
+					$this->load($id);
+				break;
+
+				default:
+					$this->id = NULL;
+			}
     }
 
     function load( $id )
@@ -104,15 +121,10 @@ class <?php echo( ucfirst( $table['name'] ) ) ?> {
         $query = "SELECT * FROM <?php echo( $table['name'] ); ?> WHERE <?php echo( $pk ); ?> = " . $id;
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
         $row = mysql_fetch_array( $result );
-
-<?php
-        foreach( $table['fields'] as $field )
-        {
-?>
-        $this-><?php echo( $field['name'] ); ?> = $row['<?php echo( $field['name'] ); ?>'];
-<?php
-}
-?>
+				foreach($row as $key => $value) 
+				{
+					$this->$key = $value;
+				}
     }
 
 <?php
