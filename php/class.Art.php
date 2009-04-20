@@ -6,13 +6,16 @@ class Art {
     var $id;
     var $artist_id;
     var $gallery_id;
-    var $art_type_id;
+    var $category_id;
+    var $medium_id;
     var $name;
     var $description;
-    var $medium;
+    var $photo_file;
     var $price;
+    var $status;
+    var $paypal_link;
 
-    function Art($attributes = NULL)
+    function __construct($attributes = NULL)
     {
 			switch( gettype($attributes) )
 			{
@@ -21,7 +24,6 @@ class Art {
 					{
 						$this->$key= mysql_real_escape_string(trim($value));
 					}
-					$this->insertRecord();
 				break;
 
 				case "integer":
@@ -75,14 +77,24 @@ class Art {
         $this->gallery_id = $val;
     }
 
-    function get_art_type_id()
+    function get_category_id()
     {
-        return $this->art_type_id;
+        return $this->category_id;
     }
 
-    function set_art_type_id( $val )
+    function set_category_id( $val )
     {
-        $this->art_type_id = $val;
+        $this->category_id = $val;
+    }
+
+    function get_medium_id()
+    {
+        return $this->medium_id;
+    }
+
+    function set_medium_id( $val )
+    {
+        $this->medium_id = $val;
     }
 
     function get_name()
@@ -105,14 +117,14 @@ class Art {
         $this->description = $val;
     }
 
-    function get_medium()
+    function get_photo_file()
     {
-        return $this->medium;
+        return $this->photo_file;
     }
 
-    function set_medium( $val )
+    function set_photo_file( $val )
     {
-        $this->medium = $val;
+        $this->photo_file = $val;
     }
 
     function get_price()
@@ -123,6 +135,26 @@ class Art {
     function set_price( $val )
     {
         $this->price = $val;
+    }
+
+    function get_status()
+    {
+        return $this->status;
+    }
+
+    function set_status( $val )
+    {
+        $this->status = $val;
+    }
+
+    function get_paypal_link()
+    {
+        return $this->paypal_link;
+    }
+
+    function set_paypal_link( $val )
+    {
+        $this->paypal_link = $val;
     }
 
 
@@ -136,15 +168,15 @@ class Art {
 
     function insertRecord()
     {
-        $query = 'INSERT INTO art ( id, artist_id, gallery_id, art_type_id, name, description, medium, price ) VALUES ( 0, "%s", "%s", "%s", "%s", "%s", "%s", "%s" )';
-        $query = sprintf( $query, $this->artist_id, $this->gallery_id, $this->art_type_id, $this->name, $this->description, $this->medium, $this->price );
+        $query = 'INSERT INTO art ( id, artist_id, gallery_id, category_id, medium_id, name, description, photo_file, price, status, paypal_link ) VALUES ( 0, "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s" )';
+        $query = sprintf( $query, $this->artist_id, $this->gallery_id, $this->category_id, $this->medium_id, $this->name, $this->description, $this->photo_file, $this->price, $this->status, $this->paypal_link );
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
     }
 
     function updateRecord()
     {
-        $query = 'UPDATE art SET artist_id="%s", gallery_id="%s", art_type_id="%s", name="%s", description="%s", medium="%s", price="%s" WHERE id = %s';
-        $query = sprintf( $query, $this->artist_id, $this->gallery_id, $this->art_type_id, $this->name, $this->description, $this->medium, $this->price, $this->id );
+        $query = 'UPDATE art SET artist_id="%s", gallery_id="%s", category_id="%s", medium_id="%s", name="%s", description="%s", photo_file="%s", price="%s", status="%s", paypal_link="%s" WHERE id = %s';
+        $query = sprintf( $query, $this->artist_id, $this->gallery_id, $this->category_id, $this->medium_id, $this->name, $this->description, $this->photo_file, $this->price, $this->status, $this->paypal_link, $this->id );
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
     }
 

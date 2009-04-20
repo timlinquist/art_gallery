@@ -1,11 +1,4 @@
-  
-
 <schema>
-  <table name="art_photos">
-    <field name="id" type="int" primary-key="true" />
-    <field name="photo_id" type="int" />
-    <field name="art_id" type="int" />
-  </table>
   <table name="artists">
     <field name="id" type="int" primary-key="true" />
     <field name="photo_id" type="int" />
@@ -13,25 +6,28 @@
     <field name="biography" type="text" />
     <field name="phone" type="varchar" />
     <field name="email" type="varchar" />
-  </table>
-  <table name="photos">
-    <field name="id" type="int" primary-key="true" />
-    <field name="thumb_path" type="varchar" />
-    <field name="full_size_path" type="varchar" />
-  </table>
-  <table name="art_types">
-    <field name="id" type="int" primary-key="true" />
-    <field name="name" type="varchar" />
+    <field name="photo_file" type="varchar" />
   </table>
   <table name="art">
     <field name="id" type="int" primary-key="true" />
     <field name="artist_id" type="int" />
     <field name="gallery_id" type="int" />
-    <field name="art_type_id" type="int" />
+    <field name="category_id" type="int" />
+    <field name="medium_id" type="int" />
     <field name="name" type="varchar" />
     <field name="description" type="text" />
-    <field name="medium" type="varchar" />
+    <field name="photo_file" type="varchar" />
     <field name="price" type="varchar" />
+    <field name="status" type="varchar" />
+    <field name="paypal_link" type="varchar" />
+  </table>
+  <table name="categories">
+    <field name="id" type="int" primary-key="true" />
+    <field name="name" type="varchar" />
+  </table>
+  <table name="mediums">
+    <field name="id" type="int" primary-key="true" />
+    <field name="name" type="varchar" />
   </table>
   <table name="galleries">
     <field name="id" type="int" primary-key="true" />
@@ -44,5 +40,14 @@
     <field name="state" type="varchar" />
     <field name="zip_code" type="varchar" />
     <field name="google_map_url" type="varchar" />
+  </table>
+  <table name="mailing_list">
+    <field name="id" type="int" primary-key="true" />
+    <field name="artist_id" type="int" />
+    <field name="medium_id" type="int" />
+    <field name="category_id" type="int" />
+    <field name="everything" type="int" />
+    <field name="name" type="varchar" />
+    <field name="email" type="varchar" />
   </table>
 </schema>

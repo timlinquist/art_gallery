@@ -14,7 +14,7 @@ class Galleries {
     var $zip_code;
     var $google_map_url;
 
-    function Galleries($attributes = NULL)
+    function __construct($attributes = NULL)
     {
 			switch( gettype($attributes) )
 			{
@@ -23,7 +23,6 @@ class Galleries {
 					{
 						$this->$key= mysql_real_escape_string(trim($value));
 					}
-					$this->insertRecord();
 				break;
 
 				case "integer":
@@ -194,5 +193,6 @@ class Galleries {
         return $ids;
     }
 }
+
 
 ?>

@@ -1,13 +1,12 @@
 <?php
 require_once( "db_connect.php" );
 
-class Photos {
+class Mediums {
 
     var $id;
-    var $thumb_path;
-    var $full_size_path;
+    var $name;
 
-    function Photos($attributes = NULL)
+    function __construct($attributes = NULL)
     {
 			switch( gettype($attributes) )
 			{
@@ -16,7 +15,6 @@ class Photos {
 					{
 						$this->$key= mysql_real_escape_string(trim($value));
 					}
-					$this->insertRecord();
 				break;
 
 				case "integer":
@@ -31,7 +29,7 @@ class Photos {
 
     function load( $id )
     {
-        $query = "SELECT * FROM photos WHERE id = " . $id;
+        $query = "SELECT * FROM mediums WHERE id = " . $id;
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
         $row = mysql_fetch_array( $result );
 				foreach($row as $key => $value) 
@@ -50,24 +48,14 @@ class Photos {
         $this->id = $val;
     }
 
-    function get_thumb_path()
+    function get_name()
     {
-        return $this->thumb_path;
+        return $this->name;
     }
 
-    function set_thumb_path( $val )
+    function set_name( $val )
     {
-        $this->thumb_path = $val;
-    }
-
-    function get_full_size_path()
-    {
-        return $this->full_size_path;
-    }
-
-    function set_full_size_path( $val )
-    {
-        $this->full_size_path = $val;
+        $this->name = $val;
     }
 
 
@@ -81,27 +69,27 @@ class Photos {
 
     function insertRecord()
     {
-        $query = 'INSERT INTO photos ( id, thumb_path, full_size_path ) VALUES ( 0, "%s", "%s" )';
-        $query = sprintf( $query, $this->thumb_path, $this->full_size_path );
+        $query = 'INSERT INTO mediums ( id, name ) VALUES ( 0, "%s" )';
+        $query = sprintf( $query, $this->name );
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
     }
 
     function updateRecord()
     {
-        $query = 'UPDATE photos SET thumb_path="%s", full_size_path="%s" WHERE id = %s';
-        $query = sprintf( $query, $this->thumb_path, $this->full_size_path, $this->id );
+        $query = 'UPDATE mediums SET name="%s" WHERE id = %s';
+        $query = sprintf( $query, $this->name, $this->id );
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
     }
 
     function deleteRecord( $id )
     {
-        $query = "DELETE FROM photos WHERE id = $id";
+        $query = "DELETE FROM mediums WHERE id = $id";
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
     }
 
     function get_num_rows()
     {
-       $temp = mysql_query( "SELECT SQL_CALC_FOUND_ROWS * FROM photos LIMIT 1" );
+       $temp = mysql_query( "SELECT SQL_CALC_FOUND_ROWS * FROM mediums LIMIT 1" );
        $result = mysql_query( "SELECT FOUND_ROWS()" );
        $total = mysql_fetch_row( $result );
        return $total[0];
@@ -110,7 +98,7 @@ class Photos {
     function get_ids()
     {
         $ids = array();
-        $query = "SELECT id FROM photos";
+        $query = "SELECT id FROM mediums";
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
         while( $row = mysql_fetch_array( $result ) )
             $ids[] = $row['id'];

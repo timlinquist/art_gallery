@@ -9,8 +9,9 @@ class Artists {
     var $biography;
     var $phone;
     var $email;
+    var $photo_file;
 
-    function Artists($attributes = NULL)
+    function __construct($attributes = NULL)
     {
 			switch( gettype($attributes) )
 			{
@@ -19,7 +20,6 @@ class Artists {
 					{
 						$this->$key= mysql_real_escape_string(trim($value));
 					}
-					$this->insertRecord();
 				break;
 
 				case "integer":
@@ -103,6 +103,16 @@ class Artists {
         $this->email = $val;
     }
 
+    function get_photo_file()
+    {
+        return $this->photo_file;
+    }
+
+    function set_photo_file( $val )
+    {
+        $this->photo_file = $val;
+    }
+
 
     function update()
     {
@@ -114,15 +124,15 @@ class Artists {
 
     function insertRecord()
     {
-        $query = 'INSERT INTO artists ( id, photo_id, name, biography, phone, email ) VALUES ( 0, "%s", "%s", "%s", "%s", "%s" )';
-        $query = sprintf( $query, $this->photo_id, $this->name, $this->biography, $this->phone, $this->email );
+        $query = 'INSERT INTO artists ( id, photo_id, name, biography, phone, email, photo_file ) VALUES ( 0, "%s", "%s", "%s", "%s", "%s", "%s" )';
+        $query = sprintf( $query, $this->photo_id, $this->name, $this->biography, $this->phone, $this->email, $this->photo_file );
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
     }
 
     function updateRecord()
     {
-        $query = 'UPDATE artists SET photo_id="%s", name="%s", biography="%s", phone="%s", email="%s" WHERE id = %s';
-        $query = sprintf( $query, $this->photo_id, $this->name, $this->biography, $this->phone, $this->email, $this->id );
+        $query = 'UPDATE artists SET photo_id="%s", name="%s", biography="%s", phone="%s", email="%s", photo_file="%s" WHERE id = %s';
+        $query = sprintf( $query, $this->photo_id, $this->name, $this->biography, $this->phone, $this->email, $this->photo_file, $this->id );
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
     }
 
