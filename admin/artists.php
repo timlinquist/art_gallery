@@ -6,7 +6,7 @@
 	if( count($artists) > 0 )
 	{
 		include( "../php/class.ArtistDisplay.php" );		
-		$artist_display= new ArtistDisplay();		
+		$artist_display= new ArtistDisplay(true);		
 		$artist_display->display_artists( $artists );
 	}
 	else
