@@ -18,5 +18,9 @@
 				</div>
 			</div>";
 		}
+		
+		public function display_artist_photo( $artist )
+		{
+		}
 	}
 ?>
