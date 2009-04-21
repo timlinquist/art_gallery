@@ -30,7 +30,7 @@
 		public function display_artist_photo( $artist )
 		{
 			$photo= new Photo( $artist->get_photo_file() );
-			//echo "<img src=\"".$artist->$photo->thumb_path()."\" alt=\"".$artist->get_name()."\" title=\"".$artist->get_name()."\" />";
+			echo "<img src=\"".$photo->thumb_path()."\" alt=\"".$artist->get_name()."\" title=\"".$artist->get_name()."\" />";
 		}
 		
 		private function admin_options( $id )
@@ -41,7 +41,7 @@
 				<div id=\"delete_artist_".$id."\">".$this->delete_button( $id )."</div>";
 			}			
 		}				
-		private function edit_button( $id ){ return "<img src='../images/edit.png' alt='edit artist' />"; }
-		private function delete_button( $id ){ return "<img src='../images/delete.png' alt='delete artist' />"; }
+		private function edit_button( $id ){ return "<img src='../images/edit.png' title='edit artist' alt='edit artist' />"; }
+		private function delete_button( $id ){ return "<img src='../images/delete.png' title='delete artist' title='delete artist' />"; }
 	}
 ?>
