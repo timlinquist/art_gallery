@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `artists` (
   `biography` text default NULL,
   `phone` varchar(15) default NULL,
   `email` varchar(200) default NULL,
-  `photo_name` varchar(250) default NULL,
+  `photo_file` varchar(250) default NULL,
   PRIMARY KEY (`id`)
 );
 
