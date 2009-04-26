@@ -21,9 +21,9 @@ class Artists {
 						$this->$key= mysql_real_escape_string(trim($value));
 					}
 				break;
-
+				case "string":
 				case "integer":
-					$id= $attribute;
+					$id= $attributes;
 					$this->load($id);
 				break;
 
@@ -138,6 +138,7 @@ class Artists {
 
     function deleteRecord( $id )
     {
+				$id= mysql_real_escape_string($id);
         $query = "DELETE FROM artists WHERE id = $id";
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
     }
