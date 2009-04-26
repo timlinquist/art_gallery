@@ -3,10 +3,13 @@
 	<head>
 		<script type="text/javascript" src="../javascript/jquery-1.3.2.min.js"></script>
 		<script type="text/javascript" src="../javascript/jquery.form.js"></script>
+		<script type="text/javascript" src="../javascript/jquery.maskedinput-1.2.2.min.js"></script>
+		<script type="text/javascript" src="../javascript/jquery.validate.pack.js"></script>
+		<script type="text/javascript" src="../javascript/jquery.validate.additional_methods.js"></script>
 		<script type="text/javascript" src="../javascript/application.js"></script>
 	</head>
 	<body>
-		<div id="flash"></div>
+		<div id="flash">&nbsp;</div>
 
 
 
