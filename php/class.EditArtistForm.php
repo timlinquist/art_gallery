@@ -20,10 +20,12 @@
 						 "<div>".$this->input_label("name").$this->text_input("name", $this->artist->get_name())."</div>".
 						 "<div>".$this->input_label("biography")."<br />".$this->textarea_input("biography", $this->artist->get_biography())."</div>".
 						 "<div>".$this->input_label("phone").$this->text_input("phone", $this->artist->get_phone())."</div>".
-						 "<div>".$this->input_label("email").$this->text_input("email", $this->artist->get_email())."</div>";
+						 "<div>".$this->input_label("email").$this->text_input("email", $this->artist->get_email())."</div>".
+						$this->submit_button();
 		}
 		
 		private function legend(){ return "<legend>Edit Artist</legend>"; }
+		private function submit_button(){ return "<input type='submit' value='Submit' />"; }
 		private function input_label($name)
 		{	
 			$display_name= ucwords($name).": ";

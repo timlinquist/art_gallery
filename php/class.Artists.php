@@ -4,7 +4,6 @@ require_once( "db_connect.php" );
 class Artists {
 
     var $id;
-    var $photo_id;
     var $name;
     var $biography;
     var $phone;
@@ -51,16 +50,6 @@ class Artists {
     function set_id( $val )
     {
         $this->id = $val;
-    }
-
-    function get_photo_id()
-    {
-        return $this->photo_id;
-    }
-
-    function set_photo_id( $val )
-    {
-        $this->photo_id = $val;
     }
 
     function get_name()
@@ -124,15 +113,24 @@ class Artists {
 
     function insertRecord()
     {
-        $query = 'INSERT INTO artists ( id, photo_id, name, biography, phone, email, photo_file ) VALUES ( 0, "%s", "%s", "%s", "%s", "%s", "%s" )';
-        $query = sprintf( $query, $this->photo_id, $this->name, $this->biography, $this->phone, $this->email, $this->photo_file );
+        $query = 'INSERT INTO artists ( id, name, biography, phone, email, photo_file ) VALUES ( 0, "%s", "%s", "%s", "%s", "%s", "%s" )';
+        $query = sprintf( $query, $this->name, $this->biography, $this->phone, $this->email, $this->photo_file );
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
     }
 
+		function update_properties_via_post($properties)
+		{
+			$this->set_name($properties['name']);
+			$this->set_biography($properties['biography']);
+			$this->set_phone($properties['phone']);
+			$this->set_email($properties['email']);
+			$this->set_photo_file($properties['photo_file']);
+		}
+
     function updateRecord()
     {
-        $query = 'UPDATE artists SET photo_id="%s", name="%s", biography="%s", phone="%s", email="%s", photo_file="%s" WHERE id = %s';
-        $query = sprintf( $query, $this->photo_id, $this->name, $this->biography, $this->phone, $this->email, $this->photo_file, $this->id );
+        $query = 'UPDATE artists SET name="%s", biography="%s", phone="%s", email="%s", photo_file="%s" WHERE id = %s';
+        $query = sprintf( $query, $this->name, $this->biography, $this->phone, $this->email, $this->photo_file, $this->id );
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
     }
 
