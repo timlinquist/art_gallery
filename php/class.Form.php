@@ -11,11 +11,10 @@
 							<fieldset>".$this->legend().$this->render_inputs()."</fieldset>
 						</form>";
 		}
-
 		public function render_inputs(){ return "OVERRIDE ME ( render_inputs() ) IN SUBCLASSES TO PRINT INPUTS FOR SPECIFIC CHILD FORM!"; }
 		
 		protected function legend(){ return "<legend>Edit</legend>"; }		
-		protected function submit_button(){ return "<input type='submit' value='Submit' />"; }
+		pr function submit_button(){ return "<input type='submit' value='Save' />"; }
 		protected function hidden_input($field, $value)
 		{
 			return "<input type='hidden' name='$field' id='$field' value='$value' />"; 
