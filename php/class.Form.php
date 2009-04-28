@@ -4,8 +4,6 @@
 		function __get($prop_name){ return $this->$prop_name; }
   	function __set($prop_name, $value ){ $this->$prop_name = $value; }
 
-		$this->color();
-
 		public function render()
 		{
 			$action_input= $this->get_action_input_for_controller();

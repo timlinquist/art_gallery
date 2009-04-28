@@ -7,7 +7,7 @@
     {
 			$query = "SELECT * FROM artists ORDER BY name ASC";
 			$result= mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
-     	$artist= array();
+     	$artists= array();
 			while( $row = mysql_fetch_assoc( $result ) )
            $artists[]= new Artists( $row );
       return $artists;
