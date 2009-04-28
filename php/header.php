@@ -5,6 +5,7 @@
    <meta name="keywords" content="art, artists, show, exhibits, oil, acrylic, watercolor, exhibitions, northwest, idaho, priest lake, contemporary, fine, art, tom wakeley, janene grende, joe kronenberg, amish furniture, art collections, artwork, lodge furnishings" />
    <meta name="description" content="The Entree Fine Art Gallery offers original and limited edition paintings, sculptures, textiles, handcrafted furniture, and jewelry by many regionally and nationally renowned contemporary artists." />
    <link rel="stylesheet" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" type="text/css" />
+   <link rel="stylesheet" href="./css/slimbox2.css" type="text/css" media="screen" charset="utf-8" />
    <style type="text/css" media="all">
    #custom-doc { width: 100%; min-width: 250px; } 
    html {
@@ -87,11 +88,12 @@
    }
    </style>
    <script type="text/javascript" charset="utf-8" src="./javascript/jquery-1.3.2.min.js"></script>
-   <script type="text/javascript" src="../javascript/jquery.form.js"></script>
-	 <script type="text/javascript" src="../javascript/jquery.maskedinput-1.2.2.min.js"></script>
-	 <script type="text/javascript" src="../javascript/jquery.validate.pack.js"></script>
-	 <script type="text/javascript" src="../javascript/jquery.validate.additional_methods.js"></script>
-	 <script type="text/javascript" src="../javascript/application.js"></script>
+	 <script type="text/javascript" charset="utf-8" src="./javascript/slimbox2.js"></script>
+   <script type="text/javascript" charset="utf-8" src="./javascript/jquery.form.js"></script>
+	 <script type="text/javascript" charset="utf-8" src="./javascript/jquery.maskedinput-1.2.2.min.js"></script>
+	 <script type="text/javascript" charset="utf-8" src="./javascript/jquery.validate.pack.js"></script>
+	 <script type="text/javascript" charset="utf-8" src="./javascript/jquery.validate.additional_methods.js"></script>
+	 <script type="text/javascript" charset="utf-8" src="./javascript/application.js"></script>
 </head>
 <body>
   <div id="custom-doc" class="yui-t7">
