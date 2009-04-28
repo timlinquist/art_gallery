@@ -13,7 +13,7 @@ function flash_message(class_to_add, msg) {
 	.removeClass("error notice")
   .addClass(class_to_add)
   .html(msg)
-  .animate({opacity: 1.0}, 5.0)
+  .animate({opacity: 1.0}, 3000)
   .blindFadeToggle(2500);	
 }
 
