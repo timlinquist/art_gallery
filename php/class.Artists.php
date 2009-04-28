@@ -2,7 +2,6 @@
 require_once( "db_connect.php" );
 
 class Artists {
-
     var $id;
     var $name;
     var $biography;
@@ -22,12 +21,12 @@ class Artists {
 				break;
 				case "string":
 				case "integer":
-					$id= $attributes;
+					$id= mysql_real_escape_string(trim($attributes));
 					$this->load($id);
 				break;
 
 				default:
-					$this->id = NULL;
+					$this->id = NULL;					
 			}
     }
 

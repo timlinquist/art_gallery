@@ -1,8 +1,10 @@
 <?php 
 	class Form{	
-		function __construct(){ }
+		function __construct(){}
 		function __get($prop_name){ return $this->$prop_name; }
   	function __set($prop_name, $value ){ $this->$prop_name = $value; }
+
+		$this->color();
 
 		public function render()
 		{
@@ -10,10 +12,10 @@
 			echo "<form action='controller.php' method='post' accept-charset='utf-8'>
 							<fieldset>".$this->legend().$this->render_inputs()."</fieldset>
 						</form>";
-		}
+		}		
 		public function render_inputs(){ return "OVERRIDE ME ( render_inputs() ) IN SUBCLASSES TO PRINT INPUTS FOR SPECIFIC CHILD FORM!"; }
 		
-		protected function legend(){ return "<legend>Edit</legend>"; }		
+		protected function legend(){ return "OVERRIDE ME ( render_inputs() ) IN SUBCLASSES TO PRINT INPUTS FOR SPECIFIC CHILD FORM!"; }		
 		protected function submit_button(){ return "<input type='submit' value='Save' />"; }
 		protected function hidden_input($field, $value)
 		{

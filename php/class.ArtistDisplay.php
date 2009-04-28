@@ -29,7 +29,7 @@
 		
 		public function display_artist_photo( $artist )
 		{
-			$photo= new Photo( $artist->get_photo_file() );
+			$photo= new Photo( $artist->get_photo_file() );			
 			return "<img src=\"".$photo->thumb_path()."\" alt=\"".$artist->get_name()."\" title=\"".$artist->get_name()."\" />";
 		}
 		
