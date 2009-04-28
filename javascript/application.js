@@ -26,7 +26,8 @@ function delete_artists() {
 			var deleted_artist_id= chopped_deleted_artist_id[ chopped_deleted_artist_id.length-1 ];	
 			$.ajax({
 			  type: "POST",
-			  url: "delete_artist.php?artist="+deleted_artist_id,
+			  url: "delete_artist.php",
+			  params: "artist="+deleted_artist_id,
 				success: function(){
 					$("#artist_"+deleted_artist_id).remove();
 					flash_notice_message("Artist successfully deleted");

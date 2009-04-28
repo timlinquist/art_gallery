@@ -13,7 +13,7 @@
      background: #6d6660;
    }
    #bd {
-     font-size: 115%;
+     font-size: 125%;
      line-height: 1.5em;
      text-align: justify;
      background: #4f473f;
@@ -43,9 +43,9 @@
      float: right;
    }
    #navigation.top {
-     font-size: 110%;
+     font-size: 135%;
      position: relative;
-     top: 155px;
+     top: 152px;
      right: 2px;
    }
    #navigation.bottom {
@@ -61,7 +61,7 @@
      float: left;
    }
    #navigation ul li a {
-     padding: 1em 0 1em 2em;
+     padding: 1em 0 1em 1.8em;
      color: #ccc;
      text-decoration: none;
    }
@@ -69,6 +69,7 @@
      color: #fff;
    }
    #ft {
+     font-size: 120%;
      color: #ddd;
      padding: .25em 0;
    }
