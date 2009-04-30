@@ -35,10 +35,15 @@ class Artists {
         $query = "SELECT * FROM artists WHERE id = " . $id;
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
         $row = mysql_fetch_array( $result );
-				foreach($row as $key => $value) 
+				if($row)
 				{
-					$this->$key = $value;
+					foreach($row as $key => $value) 
+					{
+						$this->$key = $value;
+					}
+					return;		
 				}
+				echo "<div>No artist found.</div>";
     }
 
     function get_id()

@@ -43,11 +43,11 @@
 		}				
 		private function edit_button( $id )
 		{ 
-			return "<a href='edit_artist.php?artist=$id' title='edit artist' class='edit_artist'><img src='../images/edit.png' title='edit artist' alt='edit artist' /></a>"; 
+			return "<a href='edit_artist.php?artist=$id' title='edit artist' class='edit_artist'><img src='./images/edit.png' title='edit artist' alt='edit artist' /></a>"; 
 		}
 		private function delete_button( $id )
 		{
-			 return "<a href='#' title='delete artist' id='delete_artist_link_$id'><img src='../images/delete.png' title='delete artist' title='delete artist' /></a>"; 
+			 return "<a href='#' title='delete artist' id='delete_artist_link_$id'><img src='./images/delete.png' title='delete artist' alt='delete artist' /></a>"; 
 		}
 	}
 ?>
