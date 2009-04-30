@@ -8,3 +8,4 @@
 	$artist_form->render();
 ?>
 <?php require("footer.php") ?>
+<script type="text/javascript" src="../javascript/form.js"></script>
