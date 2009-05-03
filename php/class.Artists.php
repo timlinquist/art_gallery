@@ -26,7 +26,7 @@ class Artists {
 				break;
 
 				default:
-					$this->id = NULL;					
+					$this->id = NULL;
 			}
     }
 
@@ -109,26 +109,30 @@ class Artists {
 
     function update()
     {
-        if( $this->id != null && $this->id != "null" )
-            $this->updateRecord();
+        if ( $this->id == null || $this->id == "null" || $this->id=="" )
+					{
+						$this->insertRecord();
+					}
         else
-            $this->insertRecord();
+        	{	
+						$this->updateRecord();
+					}
     }
 
     function insertRecord()
     {
-        $query = 'INSERT INTO artists ( id, name, biography, phone, email, photo_file ) VALUES ( 0, "%s", "%s", "%s", "%s", "%s", "%s" )';
+        $query = 'INSERT INTO artists ( id, name, biography, phone, email, photo_file ) VALUES ( 0, "%s", "%s", "%s", "%s", "%s" )';
         $query = sprintf( $query, $this->name, $this->biography, $this->phone, $this->email, $this->photo_file );
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
     }
 
-		function update_properties_via_post($properties)
+		function set_properties_via_post($post_array)
 		{	
-			$this->set_name($properties['name']);
-			$this->set_biography($properties['biography']);
-			$this->set_phone($properties['phone']);
-			$this->set_email($properties['email']);
-			$this->set_photo_file($properties['photo_file']);
+			$this->set_name($post_array['name']);
+			$this->set_biography($post_array['biography']);
+			$this->set_phone($post_array['phone']);
+			$this->set_email($post_array['email']);
+			$this->set_photo_file($post_array['photo_file']);
 		}
 
     function updateRecord()

@@ -8,11 +8,13 @@
 	{
 	 	case "edit_artist":
 			$artist= new Artists($_POST['id']);
-			$artist->update_properties_via_post($_POST);
+			$artist->set_properties_via_post($_POST);
 			$artist->updateRecord();
 		break;
 		case "add_artist":
-			//Add artist crap
+			$artist= new Artists();
+			$artist->set_properties_via_post($_POST);
+			$artist->update();
 		break;
 	}
 ?>
