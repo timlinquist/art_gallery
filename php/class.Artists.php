@@ -8,7 +8,7 @@ class Artists {
     var $phone;
     var $email;
     var $photo_file;
-
+		
     function __construct($attributes = NULL)
     {
 			switch( gettype($attributes) )
@@ -123,7 +123,7 @@ class Artists {
     }
 
 		function update_properties_via_post($properties)
-		{
+		{	
 			$this->set_name($properties['name']);
 			$this->set_biography($properties['biography']);
 			$this->set_phone($properties['phone']);

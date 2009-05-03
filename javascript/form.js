@@ -16,7 +16,8 @@ function enable_form() {
 
 function hide_form(selector) { $(selector).hide(); }
 
-/*This needs to be generic for any form
+/*
+	This needs to be generic for any form
 	pass a collection of inputs with their validation options
 	a redirect url after submission or none
 	move masks into generic function calls
@@ -32,7 +33,7 @@ $(document).ready(function() {
   var ajaxsubmit_options = {
     beforeSubmit:  function(){ disable_form(); return true;},     
     success: function(){
-    	hide_form("form");
+    	enable_form("form");
 			flash_notice_message("Artist successfully updated.");
 		},
 		error: function(){

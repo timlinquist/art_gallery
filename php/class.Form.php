@@ -6,9 +6,8 @@
 
 		public function render()
 		{
-			$action_input= $this->get_action_input_for_controller();
-			echo "<form action='controller.php' method='post' accept-charset='utf-8'>
-							<fieldset>".$this->legend().$this->render_inputs()."</fieldset>
+			echo "<form action='./php/controller.php' method='post' accept-charset='utf-8'>
+							<fieldset>".$this->legend().$this->render_inputs().$this->get_action_input_for_controller()."</fieldset>
 						</form>";
 		}		
 		public function render_inputs(){ return "OVERRIDE ME ( render_inputs() ) IN SUBCLASSES TO PRINT INPUTS FOR SPECIFIC CHILD FORM!"; }
