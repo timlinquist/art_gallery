@@ -1,0 +1,1 @@
+<?php if (file_exists("../HTMLArea/htmlarea.js") && (isset($_REQUEST['eid']) || isset($_REQUEST['add']))) {echo " onload=\"initEditor()\"";}?>
