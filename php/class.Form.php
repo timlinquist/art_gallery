@@ -6,11 +6,35 @@
 
 		public function render()
 		{
-			echo "<form action='./php/controller.php' method='post' accept-charset='utf-8'>
-							<fieldset>".$this->legend().$this->render_inputs().$this->get_action_input_for_controller()."</fieldset>
-						</form>";
+			echo "<form action='./php/controller.php' method='post' accept-charset='utf-8'><fieldset>\n";
+			echo $this->legend();
+			$this->render_inputs();
+			echo $this->get_action_input_for_controller();
+			echo "</fieldset>\n</form>\n";
 		}		
-		public function render_inputs(){ return "OVERRIDE ME ( render_inputs() ) IN SUBCLASSES TO PRINT INPUTS FOR SPECIFIC CHILD FORM!"; }
+		public function render_inputs($object_for_form)
+		{ 
+		  $form_fields_to_render = "";
+      foreach( $object_for_form->input_map as $property => $value )
+      {
+        $get_value_for_input = "return \$object_for_form->get_$property();";
+        $value_for_input= eval( $get_value_for_input );
+        
+        switch($value)
+        {
+          case "hidden":
+            $form_fields_to_render .= $this->hidden_input($property, $value_for_input);
+          break;
+          case "text":
+            $form_fields_to_render .= $this->text_input($property, $value_for_input);
+          break;      
+          case "textarea":
+            $form_fields_to_render .= $this->textarea_input($property, $value_for_input);
+          break;
+        }
+      }
+      echo $form_fields_to_render;
+		}
 		
 		protected function legend(){ return "OVERRIDE ME ( render_inputs() ) IN SUBCLASSES TO PRINT INPUTS FOR SPECIFIC CHILD FORM!"; }		
 		protected function submit_button(){ return "<input type='submit' value='Save' />"; }

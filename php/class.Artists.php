@@ -8,9 +8,19 @@ class Artists {
     var $phone;
     var $email;
     var $photo_file;
-		
+		var $input_map;
+
     function __construct($attributes = NULL)
     {
+      $this->input_map = array(
+        "id" => "hidden",
+        "name" => "text",
+        "biography" => "textarea",
+        "phone" => "text",
+        "email" => "text",
+        "photo_file" => "hidden"
+      );
+      
 			switch( gettype($attributes) )
 			{
 				case "array":

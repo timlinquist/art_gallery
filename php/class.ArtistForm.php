@@ -1,6 +1,9 @@
 <?php 
 	require_once("class.Form.php");	
 	class ArtistForm extends Form {
+	  var $artist;
+	  var $in_add_mode;
+
 		function __construct($artist=null, $in_add_mode=true)
 		{ 
 			($artist==null) ? $this->artist= $artist= new Artists() : $this->artist= $artist;
@@ -8,12 +11,7 @@
 		}
 		public function render_inputs()
 		{	
-			return $this->hidden_input("id", $this->artist->get_id()).
-						 $this->text_input("name", $this->artist->get_name()).
-						 $this->textarea_input("biography", $this->artist->get_biography()).
-						 $this->text_input("phone", $this->artist->get_phone()).
-						 $this->text_input("email", $this->artist->get_email()).
-						 $this->submit_button();
+		  parent::render_inputs( $this->artist );
 		}		
 		protected function legend()
     {

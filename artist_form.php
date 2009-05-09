@@ -6,7 +6,7 @@
 	{
 		$script_to_load= "<script type='text/javascript' src='/javascript/edit_artist.js'></script>";
 		$artist_finder= new ArtistFinders();
-		$artist= $artist_finder->find_artist($_GET['artist']);	
+		$artist= $artist_finder->find_artist($_GET['artist']);
 		$artist_form= new ArtistForm($artist, false);
 	}
 	else
