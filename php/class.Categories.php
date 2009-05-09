@@ -1,13 +1,19 @@
-<?php
+a<?php
 require_once( "db_connect.php" );
 
 class Categories {
 
     var $id;
     var $name;
+		var $input_map;
 
     function __construct($attributes = NULL)
     {
+	    $this->input_map = array(
+        "id" => "hidden",
+        "name" => "text"
+      );
+  
 			switch( gettype($attributes) )
 			{
 				case "array":
@@ -16,12 +22,11 @@ class Categories {
 						$this->$key= mysql_real_escape_string(trim($value));
 					}
 				break;
-
+				case "string":
 				case "integer":
-					$id= $attribute;
+					$id= mysql_real_escape_string(trim($attributes));
 					$this->load($id);
 				break;
-
 				default:
 					$this->id = NULL;
 			}
@@ -32,10 +37,16 @@ class Categories {
         $query = "SELECT * FROM categories WHERE id = " . $id;
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
         $row = mysql_fetch_array( $result );
-				foreach($row as $key => $value) 
+				if($row)
 				{
-					$this->$key = $value;
+					foreach($row as $key => $value) 
+					{
+						$this->$key = $value;
+					}
+					return;		
 				}
+				echo "<div>No category found.</div>";
+				
     }
 
     function get_id()

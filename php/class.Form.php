@@ -50,7 +50,6 @@
 		{
 			return $this->input_wrapper_start($field)."<textarea rows='10' cols='60' name='$field' id='$field'>$value</textarea>".$this->input_wrapper_end(); 
 		}
-		
 		private function input_wrapper_start($field)
 		{ 
 			return "<div id='".$field."_wrapper'>".$this->input_label($field); 
