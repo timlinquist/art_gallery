@@ -43,7 +43,7 @@
 		}				
 		private function edit_button( $id )
 		{ 
-			return "<a href='edit_artist.php?artist=$id' title='edit artist' class='edit_artist'><img src='./images/edit.png' title='edit artist' alt='edit artist' /></a>"; 
+			return "<a href='artist_form.php?artist=$id' title='edit artist' class='edit_artist'><img src='./images/edit.png' title='edit artist' alt='edit artist' /></a>"; 
 		}
 		private function delete_button( $id )
 		{
