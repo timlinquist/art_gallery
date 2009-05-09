@@ -38,6 +38,11 @@
       echo $form_fields_to_render;
 		}
 		
+		protected function object_exists($object)
+		{
+				$id= $object->get_id();
+				return ($id !=null && $id != ""); 
+		}
 		protected function legend(){ return "OVERRIDE ME ( render_inputs() ) IN SUBCLASSES TO PRINT INPUTS FOR SPECIFIC CHILD FORM!"; }		
 		protected function submit_button(){ return "<input type='submit' value='Save' />"; }
 		protected function hidden_input($field, $value)

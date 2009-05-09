@@ -1,9 +1,9 @@
 <?php 
   require "./php/header.php";
-	require "./php/class.ArtistFinders.php";
+	require "./php/class.Finders.php";
 
-	$artist_finder= new ArtistFinders();
-	$artists= $artist_finder->all_artists();
+	$finder= new Finders();
+	$artists= $finder->all_artists();
 
 	if( count($artists) > 0 )
 	{

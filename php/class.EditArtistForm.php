@@ -4,6 +4,13 @@
 	  var $artist;
 		function __construct($artist){ $this->artist= $artist; }
 		
+		public function render()
+		{
+			if( $this->object_exists($this->artist) )
+			{
+				parent::render();
+			}
+		}
 		public function render_inputs(){ parent::render_inputs( $this->artist ); }		
 		protected function legend(){ return "<legend>Edit Artist</legend>"; }
 		protected function get_action_input_for_controller()
