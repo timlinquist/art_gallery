@@ -69,13 +69,21 @@ class Categories {
         $this->name = $val;
     }
 
+		function set_properties_via_post($post_array)
+		{	
+			foreach( $this->input_map as $property => $value )
+      {
+        $set_value_from_post_array = "\$this->set_$property(\$post_array[\$property]);";
+        eval( $set_value_from_post_array );
+      }
+		}
 
     function update()
-    {
-        if( $this->id != null && $this->id != "null" )
-            $this->updateRecord();
-        else
-            $this->insertRecord();
+    {      
+			if ( $this->id == null || $this->id == "null" || $this->id=="" )
+      	$this->updateRecord();
+      else
+      	$this->insertRecord();
     }
 
     function insertRecord()

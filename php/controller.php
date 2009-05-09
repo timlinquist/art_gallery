@@ -16,5 +16,15 @@
 			$artist->set_properties_via_post($_POST);
 			$artist->update();
 		break;
+		case "add_category":
+			$category= new Categories();
+			$category->set_properties_via_post($_POST);
+			$category->update();
+		break;
+		case "edit_category":
+			$category= new Categories($_POST['id']);
+			$category->set_properties_via_post($_POST);
+			$category->update();
+		break;
 	}
 ?>

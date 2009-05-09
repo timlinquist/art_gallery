@@ -138,11 +138,11 @@ class Artists {
 
 		function set_properties_via_post($post_array)
 		{	
-			$this->set_name($post_array['name']);
-			$this->set_biography($post_array['biography']);
-			$this->set_phone($post_array['phone']);
-			$this->set_email($post_array['email']);
-			$this->set_photo_file($post_array['photo_file']);
+			foreach( $this->input_map as $property => $value )
+      {
+        $set_value_from_post_array = "\$this->set_$property(\$post_array[\$property]);";
+        eval( $set_value_from_post_array );
+      }
 		}
 
     function updateRecord()
