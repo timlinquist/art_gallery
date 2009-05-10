@@ -119,14 +119,14 @@ class Artists {
 
     function update()
     {
-        if ( $this->id == null || $this->id == "null" || $this->id=="" )
-					{
-						$this->insertRecord();
-					}
-        else
-        	{	
-						$this->updateRecord();
-					}
+			if ( $this->id == null || $this->id == "null" || $this->id=="" || $this->id==0)
+			{
+				$this->insertRecord();
+			}
+      else
+      {	
+				$this->updateRecord();
+			}
     }
 
     function insertRecord()

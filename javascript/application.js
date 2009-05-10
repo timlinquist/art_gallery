@@ -17,24 +17,29 @@ function flash_message(class_to_add, msg) {
   .blindFadeToggle(2500);	
 }
 
-function delete_artists() {	
-	$(".delete_artist a").click(function(){
-		delete_accepted = confirm("Are you sure you want to delete this artist?");
+function delete_objects(object_name) 
+{	
+	delete_msg= "Are you sure you want to delete this "+object_name+"?";
+	click_selector= ".delete_"+object_name+" a";
+	success_msg= "The "+object_name+" was successfully deleted";
+	error_msg= "Unable to delete the "+object_name+". Please try again";
+	
+	$(click_selector).click(function(){
+		delete_accepted = confirm(delete_msg);
 		if(delete_accepted)
 		{
-			chopped_deleted_artist_id= $(this)[0].id.split("_");
-			var deleted_artist_id= chopped_deleted_artist_id[ chopped_deleted_artist_id.length-1 ];	
-console.log("artist to delete: " + deleted_artist_id);
+			chopped_deleted_object_id= $(this)[0].id.split("_");
+			var deleted_object_id= chopped_deleted_object_id[ chopped_deleted_object_id.length-1 ];	
 			$.ajax({
 			  type: "POST",
-			  url: "delete_artist.php",
-			  data: "artist="+deleted_artist_id,
+			  url: "delete_"+object_name+".php",
+			  data: object_name+"="+deleted_object_id,
 				success: function(){
-					$("#artist_"+deleted_artist_id).remove();
-					flash_notice_message("Artist successfully deleted");
+					$("#"+object_name+"_"+deleted_object_id).remove();
+					flash_notice_message( success_msg );
 				},
 				error: function(){
-					flash_error_message("Unable to delete artist.  Please try again");
+					flash_error_message( error_msg );
 				}
 			});
 		}

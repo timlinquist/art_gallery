@@ -1,5 +1,7 @@
 <?php
 	require('class.Artists.php');
+	require('class.Categories.php');
+
 	foreach( $_POST as $key => $value ) {
 	  $_POST[$key] = mysql_real_escape_string(trim($value));
 	}

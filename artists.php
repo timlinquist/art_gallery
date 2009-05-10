@@ -18,8 +18,8 @@
 ?>
 <script type="text/javascript">
 	$(document).ready(function(){
-		delete_artists();
-	});
+			delete_objects("artist");
+		});
 </script>
 
 <?php 

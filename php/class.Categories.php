@@ -80,10 +80,14 @@ class Categories {
 
     function update()
     {      
-			if ( $this->id == null || $this->id == "null" || $this->id=="" )
-      	$this->updateRecord();
+			if ( $this->id == null || $this->id == "null" || $this->id=="" || $this->id==0)
+      {
+				$this->insertRecord();					
+			}
       else
-      	$this->insertRecord();
+			{
+				$this->updateRecord();
+			}
     }
 
     function insertRecord()
