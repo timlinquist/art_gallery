@@ -4,16 +4,16 @@
 	require "./php/class.EditArtistForm.php";
 	require "./php/class.AddArtistForm.php";
 
-	if($_GET['artist'] != '')
+	if(isset($_GET['artist']))
 	{
-		$script_to_load= "<script type='text/javascript' src='/javascript/edit_artist.js'></script>";
+		$script_to_load= "<script type='text/javascript' src='./javascript/edit_artist.js'></script>";
 		$finder= new Finders();
 		$artist= $finder->find_artist($_GET['artist']);
 		$artist_form= new EditArtistForm($artist);
 	}
 	else
 	{
-		$script_to_load= "<script type='text/javascript' src='/javascript/add_artist.js'></script>";
+		$script_to_load= "<script type='text/javascript' src='./javascript/add_artist.js'></script>";
 		$artist_form= new AddArtistForm();		
 	}
 	$artist_form->render();
