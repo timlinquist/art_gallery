@@ -2,6 +2,7 @@
 	require_once( "db_connect.php" );
 	require_once( "class.Artists.php" );
 	require_once( "class.Categories.php" );
+	require_once( "class.Mediums.php" );
 
 	class Finders{
 	 	public function all_artists()
@@ -24,7 +25,18 @@
       return $categories;
     }
 
+	 	public function all_mediums()
+    {
+			$query = "SELECT * FROM mediums ORDER BY name ASC";
+			$result= mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
+     	$mediums= array();
+			while( $row = mysql_fetch_assoc( $result ) )
+           $mediums[]= new Mediums( $row );
+      return $mediums;
+    }
+
 		public function find_artist( $id ){ return new Artists($id); }
 		public function find_category( $id ){ return new Categories($id); }
+		public function find_medium( $id ){ return new Mediums($id); }
 	}
 ?>

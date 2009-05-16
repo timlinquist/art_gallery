@@ -19,6 +19,5 @@
 	$artist_form->render();
 	
 	echo $script_to_load;
-	echo "<script type='text/javascript' src='/javascript/form.js'></script>";
 	require "./php/footer.php"; 
 ?>

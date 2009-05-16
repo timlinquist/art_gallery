@@ -4,7 +4,7 @@
 	require "./php/class.EditCategoryForm.php";
 	require "./php/class.AddCategoryForm.php";
 
-	if($_GET['category'] != '')
+	if(isset($_GET['category']))
 	{
 		$script_to_load= "<script type='text/javascript' src='/javascript/edit_category.js'></script>";
 		$finder= new Finders();

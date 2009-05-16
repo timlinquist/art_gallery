@@ -32,6 +32,9 @@
           break;      
           case "textarea":
             $form_fields_to_render .= $this->textarea_input($property, $value_for_input);
+					break;
+					case "select":
+						$form_fields_to_render .= $this->select_list($property, $value_for_input);
           break;
         }
       }

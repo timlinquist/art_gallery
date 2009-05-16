@@ -1,6 +1,7 @@
 <?php
 	require('class.Artists.php');
 	require('class.Categories.php');
+	require('class.Mediums.php');
 
 	foreach( $_POST as $key => $value ) {
 	  $_POST[$key] = mysql_real_escape_string(trim($value));
@@ -27,6 +28,16 @@
 			$category= new Categories($_POST['id']);
 			$category->set_properties_via_post($_POST);
 			$category->update();
+		break;
+		case "add_medium":
+			$medium= new Mediums();
+			$medium->set_properties_via_post($_POST);
+			$medium->update();
+		break;
+		case "edit_medium":
+			$medium= new Mediums($_POST['id']);
+			$medium->set_properties_via_post($_POST);
+			$medium->update();
 		break;
 	}
 ?>

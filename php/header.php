@@ -95,6 +95,7 @@
 	 <script type="text/javascript" charset="utf-8" src="./javascript/jquery.validate.pack.js"></script>
 	 <script type="text/javascript" charset="utf-8" src="./javascript/jquery.validate.additional_methods.js"></script>
 	 <script type="text/javascript" charset="utf-8" src="./javascript/application.js"></script>
+   <script type='text/javascript' src='./javascript/form.js'></script>
 </head>
 <body>
   <div id="custom-doc" class="yui-t7">
