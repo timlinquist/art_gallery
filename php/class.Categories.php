@@ -46,7 +46,6 @@ class Categories {
 					return;		
 				}
 				echo "<div>No category found.</div>";
-				
     }
 
     function get_id()
