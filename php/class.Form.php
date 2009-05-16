@@ -34,7 +34,13 @@
             $form_fields_to_render .= $this->textarea_input($property, $value_for_input);
 					break;
 					case "select":
-						$form_fields_to_render .= $this->select_list($property, $value_for_input);
+						switch($property)
+						{
+							case "category_id":
+								$form_fields_to_render .= $this->generate_select_with_opts($property, $value_for_input, "categories");							
+							break;
+							//Add more case options here as needed 
+						}
           break;
         }
       }
