@@ -39,7 +39,12 @@
 							case "category_id":
 								$form_fields_to_render .= $this->generate_select_with_opts($property, $value_for_input, "categories");							
 							break;
-							//Add more case options here as needed 
+							case "medium_id":
+								$form_fields_to_render .= $this->generate_select_with_opts($property, $value_for_input, "mediums");							
+							break;
+							case "artist_id":
+								$form_fields_to_render .= $this->generate_select_with_opts($property, $value_for_input, "artists");							
+							break;
 						}
           break;
         }

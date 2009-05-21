@@ -5,7 +5,6 @@ class Art {
 
     var $id;
     var $artist_id;
-    var $gallery_id;
     var $category_id;
     var $medium_id;
     var $name;
@@ -17,6 +16,20 @@ class Art {
 
     function __construct($attributes = NULL)
     {
+	    $this->input_map = array(
+        "id" 					=> "hidden",
+        "artist_id" 	=> "select",
+        "category_id" => "select",
+        "medium_id" 	=> "select",
+        "name" 				=> "text",
+        "description" => "textarea",
+				"photo_file"	=> "hidden"
+				//,
+				// "price"				=> "text",
+				// "status"			=> "status"
+				// "paypal_link"	=> "text"
+      );
+  
 			switch( gettype($attributes) )
 			{
 				case "array":
@@ -25,12 +38,11 @@ class Art {
 						$this->$key= mysql_real_escape_string(trim($value));
 					}
 				break;
-
+				case "string":
 				case "integer":
-					$id= $attribute;
+					$id= mysql_real_escape_string(trim($attributes));
 					$this->load($id);
 				break;
-
 				default:
 					$this->id = NULL;
 			}
@@ -41,10 +53,15 @@ class Art {
         $query = "SELECT * FROM art WHERE id = " . $id;
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
         $row = mysql_fetch_array( $result );
-				foreach($row as $key => $value) 
+				if($row)
 				{
-					$this->$key = $value;
+					foreach($row as $key => $value) 
+					{
+						$this->$key = $value;
+					}
+					return;		
 				}
+				echo "<div>No Art found.</div>";
     }
 
     function get_id()
@@ -65,16 +82,6 @@ class Art {
     function set_artist_id( $val )
     {
         $this->artist_id = $val;
-    }
-
-    function get_gallery_id()
-    {
-        return $this->gallery_id;
-    }
-
-    function set_gallery_id( $val )
-    {
-        $this->gallery_id = $val;
     }
 
     function get_category_id()
@@ -157,10 +164,18 @@ class Art {
         $this->paypal_link = $val;
     }
 
+		function set_properties_via_post($post_array)
+		{	
+			foreach( $this->input_map as $property => $value )
+      {
+        $set_value_from_post_array = "\$this->set_$property(\$post_array[\$property]);";
+        eval( $set_value_from_post_array );
+      }
+		}
 
     function update()
     {
-        if( $this->id != null && $this->id != "null" )
+        if( $this->id != null && $this->id != "null" && $this->id != '' && $this->id != '0' && $this->id != 0)
             $this->updateRecord();
         else
             $this->insertRecord();
@@ -168,15 +183,15 @@ class Art {
 
     function insertRecord()
     {
-        $query = 'INSERT INTO art ( id, artist_id, gallery_id, category_id, medium_id, name, description, photo_file, price, status, paypal_link ) VALUES ( 0, "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s" )';
-        $query = sprintf( $query, $this->artist_id, $this->gallery_id, $this->category_id, $this->medium_id, $this->name, $this->description, $this->photo_file, $this->price, $this->status, $this->paypal_link );
+        $query = 'INSERT INTO art ( id, artist_id, category_id, medium_id, name, description, photo_file, price, status, paypal_link ) VALUES ( 0, "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s" )';
+        $query = sprintf( $query, $this->artist_id, $this->category_id, $this->medium_id, $this->name, $this->description, $this->photo_file, $this->price, $this->status, $this->paypal_link );
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
     }
 
     function updateRecord()
     {
-        $query = 'UPDATE art SET artist_id="%s", gallery_id="%s", category_id="%s", medium_id="%s", name="%s", description="%s", photo_file="%s", price="%s", status="%s", paypal_link="%s" WHERE id = %s';
-        $query = sprintf( $query, $this->artist_id, $this->gallery_id, $this->category_id, $this->medium_id, $this->name, $this->description, $this->photo_file, $this->price, $this->status, $this->paypal_link, $this->id );
+        $query = 'UPDATE art SET artist_id="%s", category_id="%s", medium_id="%s", name="%s", description="%s", photo_file="%s", price="%s", status="%s", paypal_link="%s" WHERE id = %s';
+        $query = sprintf( $query, $this->artist_id, $this->category_id, $this->medium_id, $this->name, $this->description, $this->photo_file, $this->price, $this->status, $this->paypal_link, $this->id );
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
     }
 
