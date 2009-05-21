@@ -4,15 +4,13 @@ require_once( "db_connect.php" );
 class Mediums {
     var $id;
     var $name;
-		var $category_id; 
 		var $input_map;
 
     function __construct($attributes = NULL)
     {
 	    $this->input_map = array(
         "id" 					=> "hidden",
-        "name" 				=> "text",
-				"category_id" => "select"
+        "name" 				=> "text"
       );
   
 			switch( gettype($attributes) )
@@ -70,16 +68,6 @@ class Mediums {
         $this->name = $val;
     }
 
-    function get_category_id()
-    {
-        return $this->category_id;
-    }
-
-    function set_category_id( $val )
-    {
-        $this->category_id = $val;
-    }
-
 		function set_properties_via_post($post_array)
 		{	
 			foreach( $this->input_map as $property => $value )
@@ -99,15 +87,15 @@ class Mediums {
 
     function insertRecord()
     {
-        $query = 'INSERT INTO mediums ( id, name, category_id ) VALUES ( 0, "%s", "%s" )';
+        $query = 'INSERT INTO mediums ( id, name ) VALUES ( 0, "%s" )';
         $query = sprintf( $query, $this->name, $this->category_id );
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
     }
 
     function updateRecord()
     {
-        $query = 'UPDATE mediums SET name="%s", category_id="%s" WHERE id = %s';
-        $query = sprintf( $query, $this->name, $this->category_id, $this->id );
+        $query = 'UPDATE mediums SET name="%s" WHERE id = %s';
+        $query = sprintf( $query, $this->name, $this->id );
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
     }
 

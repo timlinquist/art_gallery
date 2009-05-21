@@ -16,25 +16,13 @@
 			echo "<div id=\"medium_".$medium->get_id()."\">"
 							. "<p><strong>Name:&nbsp;</strong><span>"
 							. $medium->get_name()
-							. "<p><strong>Category:&nbsp;</strong><span>"
-							. $this->get_category_name($medium)							
 							.$this->buttons( $medium->get_id() )
 					."</div>";
 		}
-		private function get_category_name($medium)
-		{
-			$finder= new Finders();
-			$category_for_medium= $finder->find_category($medium->get_category_id());
-			if($category_for_medium)
-			{
-				return $category_for_medium->get_name();
-			}
-			return "No category selected.";
-		}
 		private function buttons($id)
 		{
-			return "<div id=\"edit_medium_".$id."\">".$this->edit_button( $id )."</div>"
-						. "<div id=\"delete_medium_".$id."\" class='delete_medium'>".$this->delete_button( $id )."</div>";
+			return "<div id=\"edit_medium_".$id."\">".$this->edit_button( $id )."</div>";
+						// . "<div id=\"delete_medium_".$id."\" class='delete_medium'>".$this->delete_button( $id )."</div>";
 		}
 		private function edit_button( $id )
 		{ 

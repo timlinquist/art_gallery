@@ -19,8 +19,8 @@
 		}
 		private function buttons($id)
 		{
-			return "<div id=\"edit_category_".$id."\">".$this->edit_button( $id )."</div>"
-						. "<div id=\"delete_category_".$id."\" class='delete_category'>".$this->delete_button( $id )."</div>";
+			return "<div id=\"edit_category_".$id."\">".$this->edit_button( $id )."</div>";
+						// . "<div id=\"delete_category_".$id."\" class='delete_category'>".$this->delete_button( $id )."</div>";
 		}
 		private function edit_button( $id )
 		{ 
