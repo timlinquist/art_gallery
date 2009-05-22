@@ -87,6 +87,46 @@
    a:hover img.thumb {
      border: 2px solid #551413;
    }
+   fieldset {
+     border: 1px solid #ddd;
+     padding: 1em;
+   }
+   fieldset div {
+     clear: both;
+     line-height: 2em;
+     padding: 0 0 10px 0;
+   }
+   legend {
+     color: #ddd;
+     font-weight: bold; 
+     font-size: 120%; 
+     padding: 0 .5em;
+   }
+   fieldset div > label:first-child {
+     display: inline;
+     float: left;
+     width: 180px;
+     line-height: 2em;
+   }
+   .form_hint {
+     font-size: 90%;
+     color: #888;
+   }
+
+   label.error {
+     padding: 0 0 0 30px;
+     margin: 0;
+     display: inline;
+     float: left;
+     color: #600;
+     line-height: 2em;
+     width: 180px;
+     background: url('../images/delete.png') 3px 1px no-repeat;
+   }
+
+   label.checked {
+     background: url('../images/check.png') 3px 1px no-repeat;
+   }
    </style>
    <script type="text/javascript" charset="utf-8" src="./javascript/jquery-1.3.2.min.js"></script>
 	 <script type="text/javascript" charset="utf-8" src="./javascript/slimbox2.js"></script>
