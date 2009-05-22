@@ -115,6 +115,4 @@
     </div>
     <div id="bd"><div class="yui-g content">
 		<div id="flash">&nbsp;</div>
-
-
-
+		

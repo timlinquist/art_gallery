@@ -50,4 +50,5 @@
 		public function find_category( $id ){ return new Categories($id); }
 		public function find_medium( $id ){ return new Mediums($id); }
 	}
+
 ?>

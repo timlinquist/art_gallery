@@ -1,6 +1,6 @@
 <?php 
-  require "./php/header.php";
 	require "./php/class.Finders.php";
+  require "./php/header.php";
 
 	$finder= new Finders();
 	$mediums= $finder->all_mediums();
@@ -18,8 +18,8 @@
 ?>
 <script type="text/javascript">
 	$(document).ready(function(){
-			delete_objects("medium");
-		});
+	  delete_objects("medium");
+	});
 </script>
 
 <?php 

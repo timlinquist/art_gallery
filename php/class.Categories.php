@@ -1,8 +1,7 @@
-a<?php
+<?php
 require_once( "db_connect.php" );
 
 class Categories {
-
     var $id;
     var $name;
 		var $input_map;
