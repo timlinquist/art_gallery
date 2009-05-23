@@ -1,26 +1,21 @@
 <?php
 	class Photo {
 	  var $file_name;  
-		var $thumb_size_folder_path;
-		var $full_size_folder_path;
+		const THUMB_SIZE_FOLDER_PATH = "../photos/thumb_size/";
+		const FULL_SIZE_FOLDER_PATH = "../photos/full_size/";
 
-		function __construct($file_name)
-		{ 
-			$this->file_name= $file_name;
-			$this->thumb_size_folder_path= "../photos/thumb_size/";
-			$this->full_size_folder_path= "../photos/full_size/";	
-		}
+		function __construct($file_name){ $this->file_name= $file_name; }
 		function __get($prop_name){ return $this->$prop_name; }
 	  function __set($prop_name, $value ){ $this->$prop_name = $value; }
 	
 		public function thumb_path()
 		{
-			return $this->thumb_size_folder_path . $this->file_name;
+			return self::THUMB_SIZE_FOLDER_PATH . $this->file_name;
 		}
 	
 		public function full_size_path()
 		{
-			return $this->full_size_folder_path . $this->file_name;
+			return self::FULL_SIZE_FOLDER_PATH . $this->file_name;
 		}
 	}
 ?>

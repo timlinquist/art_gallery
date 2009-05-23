@@ -3,6 +3,7 @@
 	require('class.Categories.php');
 	require('class.Mediums.php');
 	require('class.Art.php');
+	require('class.PhotoUploader.php');
 
 	foreach( $_POST as $key => $value ) {
 	  $_POST[$key] = mysql_real_escape_string(trim($value));
@@ -10,6 +11,10 @@
 
 	switch($_POST['action']) 
 	{
+		case 'upload_photo':
+			$photo_uploader= new PhotoUploader($_FILES);
+			$photo_uploader->upload();
+		break;
 	 	case "edit_artist":
 			$artist= new Artists($_POST['id']);
 			$artist->set_properties_via_post($_POST);
