@@ -1,8 +1,10 @@
 <?php
+	require_once("class.PhotoResizer.php");
+	
 	class PhotoUploader {
-		const THUMB_SIZE_FOLDER_PATH = "../photos/thumb_size/";
 		const FULL_SIZE_FOLDER_PATH = "../photos/full_size/";
 		var $files;
+		var $resizer;
 		
 		function __get($prop_name){ return $this->$prop_name; }
 	  function __set($prop_name, $value ){ $this->$prop_name = $value; }
@@ -16,11 +18,20 @@
 			{
 				if (move_uploaded_file($this->files['photo_upload']['tmp_name'], $full_size_upload)) 
 				{
+					$this->generate_resized_photos($full_size_upload);
 					echo "Photo is valid, and was successfully uploaded.\n";
 					return;
 				} 
 				echo "Unable to upload photo.  Please try to upload the photo again. \n";
 			}			
 		}
+		
+		private function generate_resized_photos($full_size_upload)
+		{
+			$thumb_file_name= basename($this->files['photo_upload']['name']);
+			$this->resizer= new PhotoResizer($full_size_upload, $thumb_file_name);
+			$this->generate_thumbnail($full_size_upload);
+		}	
+		private function generate_thumbnail($photo){ $this->resizer->resize($photo); }
 	}
 ?>
