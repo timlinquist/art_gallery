@@ -131,6 +131,7 @@
    <script type="text/javascript" charset="utf-8" src="./javascript/jquery-1.3.2.min.js"></script>
 	 <script type="text/javascript" charset="utf-8" src="./javascript/slimbox2.js"></script>
    <script type="text/javascript" charset="utf-8" src="./javascript/jquery.form.js"></script>
+   <script type="text/javascript" charset="utf-8" src="./javascript/ocupload.js"></script>
 	 <script type="text/javascript" charset="utf-8" src="./javascript/jquery.maskedinput-1.2.2.min.js"></script>
 	 <script type="text/javascript" charset="utf-8" src="./javascript/jquery.validate.pack.js"></script>
 	 <script type="text/javascript" charset="utf-8" src="./javascript/jquery.validate.additional_methods.js"></script>

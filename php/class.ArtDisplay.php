@@ -1,5 +1,6 @@
 <?php 
 	require_once("class.Finders.php");
+	require_once( "class.Photo.php" );
 	require_once("class.Art.php");
 	
 	class ArtDisplay{
@@ -15,12 +16,19 @@
 		public function display_art_piece( $art_piece )
 		{
 			echo "<div id=\"art_".$art_piece->get_id()."\">"
+							.$this->display_art_photo( $art_piece )
 							. "<p><strong>Name:&nbsp;</strong><span>"
 							. $art_piece->get_name()
 							. "<p><strong>Category:&nbsp;</strong><span>"
 							. $this->get_category_name($art_piece)							
 							.$this->buttons( $art_piece->get_id() )
 					."</div>";
+		}
+		
+		public function display_art_photo( $art_piece )
+		{
+			$photo= new Photo( $art_piece->get_photo_file() );			
+			return "<img src=\"".$photo->thumb_path()."\" alt=\"".$art_piece->get_name()."\" title=\"".$art_piece->get_name()."\" />";
 		}
 		
 		private function get_category_name($art_piece)

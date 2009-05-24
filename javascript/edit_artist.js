@@ -15,7 +15,7 @@ $(document).ready(function() {
   var ajaxsubmit_options = {
     beforeSubmit:  function(){ disable_form(); return true;},     
     success: function(){
-    	enable_form("form");
+    	enable_form("#main_form");
 			flash_notice_message("Artist successfully updated.");
 		},
 		error: function(){
@@ -25,7 +25,7 @@ $(document).ready(function() {
   }
   
 	// validate signup form on keyup and submit
-	var validator = $("form").validate({
+	var validator = $("#main_form").validate({
 		rules: {
 			name: {
 			  required: true,
@@ -66,7 +66,7 @@ $(document).ready(function() {
 			label.html("&nbsp;").addClass("checked");
 		},
 		submitHandler: function() {
-			$("form").ajaxSubmit(ajaxsubmit_options);
+			$("#main_form").ajaxSubmit(ajaxsubmit_options);
       return false;  //  return false to prevent standard browser submit
 		}
 	});

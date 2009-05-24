@@ -6,9 +6,9 @@
 
 		public function render()
 		{
-			echo "<form action='./php/controller.php' method='post' accept-charset='utf-8'><fieldset>\n";
-				echo $this->legend();
-				$this->render_inputs();
+			echo "<form action='./php/controller.php' method='post' accept-charset='utf-8' id='main_form'><fieldset>\n";
+				echo $this->legend();				
+				$this->render_inputs();				
 				echo $this->get_action_input_for_controller();
 				echo "</fieldset>\n";
 				echo $this->submit_button();

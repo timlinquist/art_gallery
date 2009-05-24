@@ -6,18 +6,20 @@
 
 	if(isset($_GET['art']))
 	{
-		$script_to_load= "<script type='text/javascript' src='/javascript/edit_art.js'></script>";
+		$scripts_to_load= "<script type='text/javascript' src='/javascript/edit_art.js'></script>";
 		$finder= new Finders();
 		$art= $finder->find_art($_GET['art']);
 		$art_form= new EditArtForm($art);
 	}
 	else
 	{
-		$script_to_load= "<script type='text/javascript' src='/javascript/add_art.js'></script>";
+		$scripts_to_load  = "<script type='text/javascript' src='/javascript/add_art.js'></script>";
 		$art_form= new AddArtForm();		
 	}
 	$art_form->render();
+	include "photo_upload_form.php";
+	$scripts_to_load .= "<script type='text/javascript' src='/javascript/one_click_upload_for_object.js'></script>";
 	
-	echo $script_to_load;
+	echo $scripts_to_load;
 	require "./php/footer.php"; 
 ?>

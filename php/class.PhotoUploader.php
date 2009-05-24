@@ -3,6 +3,7 @@
 	
 	class PhotoUploader {
 		const FULL_SIZE_FOLDER_PATH = "../photos/full_size/";
+		const THUMB_SIZE_FOLDER_PATH = "../photos/thumb_size/";
 		var $files;
 		var $resizer;
 		
@@ -19,10 +20,11 @@
 				if (move_uploaded_file($this->files['photo_upload']['tmp_name'], $full_size_upload)) 
 				{
 					$this->generate_resized_photos($full_size_upload);
-					echo "Photo is valid, and was successfully uploaded.\n";
+					$thumb_url= self::THUMB_SIZE_FOLDER_PATH . basename($this->files['photo_upload']['name']);
+					echo "success|".$thumb_url."|".$this->files['photo_upload']['name'];
 					return;
 				} 
-				echo "Unable to upload photo.  Please try to upload the photo again. \n";
+				echo "error";
 			}			
 		}
 		
