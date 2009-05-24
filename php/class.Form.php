@@ -71,15 +71,16 @@
 		{
 			return $this->input_wrapper_start($field)."<textarea rows='10' cols='60' name='$field' id='$field'>$value</textarea>".$this->input_wrapper_end(); 
 		}
-		private function input_wrapper_start($field)
+		protected function input_wrapper_start($field, $required=true)
 		{ 
-			return "<div id='".$field."_wrapper'>".$this->input_label($field); 
+			return "<div id='".$field."_wrapper'>".$this->input_label($field, $required); 
 		}
-		private function input_wrapper_end(){ return "</div>"; }
-		private function input_label($field)
+		protected function input_wrapper_end(){ return "</div>"; }
+		private function input_label($field, $required)
 		{	
 			$display_name= ucwords($field).": ";
-			return "<label for='$field'>$display_name<span class='form_hint'>(required)</span></label>";
+			$live_validation= ($required) ? "<span class='form_hint'>(required)</span>" : "";
+			return "<label for='$field'>$display_name$live_validation</label>";
 		}
 	}
 ?>
