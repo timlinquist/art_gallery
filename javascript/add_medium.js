@@ -4,6 +4,7 @@ $(document).ready(function() {
     beforeSubmit:  function(){ disable_form(); return true;},     
     success: function(){
     	enable_form("form");
+			$("form").resetForm();
 			flash_notice_message("Medium successfully added.");
 		},
 		error: function(){

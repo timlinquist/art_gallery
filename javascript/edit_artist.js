@@ -1,12 +1,3 @@
-/*
-	This needs to be generic for any form
-	pass a collection of inputs with their validation options
-	a redirect url after submission or none
-	move masks into generic function calls
-	error/notice messages need to be passed
-	the form_id also needs to be passed
-*/
-
 $(document).ready(function() {
   $('input#phone').mask("(999) 999-9999? x99999");
   $('input#zip_code').mask("99999?-9999");
