@@ -5,6 +5,8 @@
 	$finder= new Finders();
 	$mediums= $finder->all_mediums();
 
+	echo "<a href='medium_form.php' title='add medium'>Add a medium</a>";
+
 	if( count($mediums) > 0 )
 	{
 		include "./php/class.MediumDisplay.php";		

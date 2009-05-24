@@ -16,6 +16,7 @@
 		$script_to_load= "<script type='text/javascript' src='./javascript/add_medium.js'></script>";
 		$medium_form= new AddMediumForm();		
 	}
+	echo "<a href='mediums.php' alt='view mediums'>View mediums</a>";
 	$medium_form->render();
 	
 	echo $script_to_load;

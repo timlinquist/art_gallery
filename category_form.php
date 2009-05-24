@@ -16,6 +16,8 @@
 		$script_to_load= "<script type='text/javascript' src='/javascript/add_category.js'></script>";
 		$category_form= new AddCategoryForm();		
 	}
+	
+	echo "<a href='categories.php' alt='view categories'>View categories</a>";
 	$category_form->render();
 	
 	echo $script_to_load;

@@ -5,6 +5,8 @@
 	$finder= new Finders();
 	$artists= $finder->all_artists();
 
+	echo "<a href='artist_form.php' title='add artist'>Add an artist</a>";
+
 	if( count($artists) > 0 )
 	{
 		include "./php/class.ArtistDisplay.php";		
