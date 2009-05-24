@@ -1,6 +1,6 @@
 <?php
-	require './php/class.Search.php';
+	require './php/class.ArtSearchForm.php';
 	echo "<script type='text/javascript' src='./javascript/art_search.js'></script>";
-	$search= new Search();
-	$search->render_form();
+	$search_form= new ArtSearchForm();
+	$search_form->render_form();
 ?>

@@ -2,7 +2,7 @@
 	require_once('class.Finders.php');
 	require_once("class.Form.php");	
 	
-	class Search extends Form
+	class ArtSearchForm extends Form
 	{
 		var $categories;
 		var $mediums;
@@ -23,7 +23,7 @@
 			echo "<form id='art_search'><fieldset>";
 			echo "<legend>Art Seach</legend>";
 			$this->generate_select_lists();
-			echo "<input type='submit' value='View Results' />";
+			echo "<div id='view_results'><input type='submit' value='View Results' id='view_results_submit' /></div>";
 			echo "</fieldset></form>";
 		}
 
