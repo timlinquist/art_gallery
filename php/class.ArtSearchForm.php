@@ -54,7 +54,7 @@
 				break;
 			}
 			$select="<select id='$type' name='$type'>";
-			if(!$is_filtered){ $select .= $this->default_option($type, $selected); }
+			$select .= $this->default_option($type, $selected);
 			
 			foreach( $collection as $object )
 			{ 
