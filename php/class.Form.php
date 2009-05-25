@@ -78,7 +78,13 @@
 		protected function input_wrapper_end(){ return "</div>"; }
 		private function input_label($field, $required)
 		{	
-			$display_name= ucwords($field).": ";
+			$has_an_id= strrpos($field, "id");
+			if($has_an_id){ 
+				$display_name= ucwords( str_replace("_id", "", $field)) . ": ";				
+			}
+			else{
+				$display_name= ucwords($field).": ";				
+			}
 			$live_validation= ($required) ? "<span class='form_hint'>(required)</span>" : "";
 			return "<label for='$field'>$display_name$live_validation</label>";
 		}
