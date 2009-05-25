@@ -68,6 +68,17 @@
 			}
 			return $options;
 		}
+		private function generate_galleries($gallery_to_select=null)
+		{
+			$galleries= array("West Gallery", "East Gallery");
+			$options="";
+			foreach( $galleries as $gallery )
+			{ 
+				$selected = ($gallery==$gallery_to_select) ? "selected='1'" : "";
+				$options .= "<option value='$gallery' $selected>$gallery</option>"; 
+			}
+			return $options;
+		}
 	
 	}
 ?>

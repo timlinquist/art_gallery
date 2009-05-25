@@ -22,6 +22,8 @@
 							. $art_piece->get_name()
 							. "<p><strong>Category:&nbsp;</strong><span>"
 							. $this->get_category_name($art_piece)	
+							. "<p><strong>Gallery:&nbsp;</strong><span>"
+							. $art_piece->get_gallery()
 							.	$admin_options						
 					."</div>";
 		}

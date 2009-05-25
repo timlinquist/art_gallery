@@ -10,6 +10,7 @@ class Art {
     var $name;
     var $description;
     var $photo_file;
+		var $gallery;
     var $price;
     var $status;
     var $paypal_link;
@@ -21,6 +22,7 @@ class Art {
         "artist_id" 	=> "select",
         "category_id" => "select",
         "medium_id" 	=> "select",
+        "gallery" 		=> "select",
         "name" 				=> "text",
         "description" => "textarea",
 				"photo_file"	=> "hidden"
@@ -104,6 +106,16 @@ class Art {
         $this->medium_id = $val;
     }
 
+    function get_gallery()
+    {
+        return $this->gallery;
+    }
+
+    function set_gallery( $val )
+    {
+        $this->gallery = $val;
+    }
+
     function get_name()
     {
         return $this->name;
@@ -183,15 +195,15 @@ class Art {
 
     function insertRecord()
     {
-        $query = 'INSERT INTO art ( id, artist_id, category_id, medium_id, name, description, photo_file, price, status, paypal_link ) VALUES ( 0, "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s" )';
-        $query = sprintf( $query, $this->artist_id, $this->category_id, $this->medium_id, $this->name, $this->description, $this->photo_file, $this->price, $this->status, $this->paypal_link );
+        $query = 'INSERT INTO art ( id, artist_id, category_id, medium_id, name, description, gallery, photo_file, price, status, paypal_link ) VALUES ( 0, "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s" )';
+        $query = sprintf( $query, $this->artist_id, $this->category_id, $this->medium_id, $this->name, $this->description, $this->gallery, $this->photo_file, $this->price, $this->status, $this->paypal_link );
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
     }
 
     function updateRecord()
     {
-        $query = 'UPDATE art SET artist_id="%s", category_id="%s", medium_id="%s", name="%s", description="%s", photo_file="%s", price="%s", status="%s", paypal_link="%s" WHERE id = %s';
-        $query = sprintf( $query, $this->artist_id, $this->category_id, $this->medium_id, $this->name, $this->description, $this->photo_file, $this->price, $this->status, $this->paypal_link, $this->id );
+        $query = 'UPDATE art SET artist_id="%s", category_id="%s", medium_id="%s", name="%s", description="%s", gallery="%s", photo_file="%s", price="%s", status="%s", paypal_link="%s" WHERE id = %s';
+        $query = sprintf( $query, $this->artist_id, $this->category_id, $this->medium_id, $this->name, $this->description, $this->gallery, $this->photo_file, $this->price, $this->status, $this->paypal_link, $this->id );
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
     }
 

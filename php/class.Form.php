@@ -45,6 +45,9 @@
 							case "artist_id":
 								$form_fields_to_render .= $this->generate_select_with_opts($property, $value_for_input, "artists");							
 							break;
+							case "gallery":
+								$form_fields_to_render .= $this->generate_select_with_opts($property, $value_for_input, "galleries");							
+							break;
 						}
           break;
         }
