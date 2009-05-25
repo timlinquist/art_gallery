@@ -16,7 +16,7 @@
 		public function display_art_piece( $art_piece )
 		{
 			$admin_options= ($this->admin_access) ? $this->buttons( $art_piece->get_id() ) : "";
-			echo "<div id=\"art_".$art_piece->get_id()."\">"
+			echo "<div id=\"art_".$art_piece->get_id()."\" class='art'>"
 							.$this->display_art_photo( $art_piece )
 							. "<p><strong>Name:&nbsp;</strong><span>"
 							. $art_piece->get_name()

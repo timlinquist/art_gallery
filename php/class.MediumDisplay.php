@@ -13,7 +13,7 @@
 
 		public function display_medium( $medium )
 		{
-			echo "<div id=\"medium_".$medium->get_id()."\">"
+			echo "<div id=\"medium_".$medium->get_id()."\" class='medium'>"
 							. "<p><strong>Name:&nbsp;</strong><span>"
 							. $medium->get_name()
 							.$this->buttons( $medium->get_id() )

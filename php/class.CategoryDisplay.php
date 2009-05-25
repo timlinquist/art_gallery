@@ -11,7 +11,7 @@
 
 		public function display_category( $category )
 		{
-			echo "<div id=\"category_".$category->get_id()."\">"
+			echo "<div id=\"category_".$category->get_id()."\" class='category'>"
 							. "<p><strong>Name:&nbsp;</strong><span>"
 							. $category->get_name()
 							.$this->buttons( $category->get_id() )

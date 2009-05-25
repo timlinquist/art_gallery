@@ -2,7 +2,7 @@
 	require_once( "class.Photo.php" );
 
 	class ArtistDisplay{
-		function __construct($admin_access){ $this->admin_access= $admin_access;	}
+		function __construct($admin_access=false){ $this->admin_access= $admin_access;	}
 		function __get($prop_name){ return $this->$prop_name; }
 	  function __set($prop_name, $value ){ $this->$prop_name = $value; }
 
@@ -13,9 +13,11 @@
 
 		public function display_artist( $artist )
 		{
-			echo "<div id=\"artist_".$artist->get_id()."\">"
+			$artist_name= ($this->admin_access) ? $artist->get_name() : $this->show_artist( $artist ) ;
+			
+			echo "<div id=\"artist_".$artist->get_id()."\" class='artist'>"
 							.$this->display_artist_photo( $artist ).
-							"<p><strong>Name:&nbsp;</strong><span>".$artist->get_name()."</span></p>
+							"<p><strong>Name:&nbsp;</strong><span>" . $artist_name . "</span></p>
 							<p><strong>Biography:</strong></p>
 							<p>".$artist->get_biography()."</p>
 							<div class=\"contact_info\">
@@ -37,6 +39,11 @@
 			}
 		}
 		
+		private function show_artist( $artist )
+		{
+			return "<a href='artist_show.php?id=" . $artist->get_id() . "'>" . $artist->get_name() . "</a>";
+		}
+
 		private function admin_options( $id )
 		{
 			if ($this->admin_access) 

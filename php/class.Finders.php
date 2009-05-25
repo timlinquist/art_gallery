@@ -35,6 +35,16 @@
       return $mediums;
     }
 
+		public function all_art_by_artist($artist_id)
+		{
+			$query = "SELECT * FROM art WHERE artist_id = " . $artist_id . " ORDER BY name ASC";
+			$result= mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
+     	$art= array();
+			while( $row = mysql_fetch_assoc( $result ) )
+           $art[]= new Art( $row );
+      return $art;			
+		}
+
 	 	public function all_art()
     {
 			$query = "SELECT * FROM art ORDER BY name ASC";
