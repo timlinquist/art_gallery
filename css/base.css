@@ -1,3 +1,123 @@
+#custom-doc { width: 100%; min-width: 250px; } 
+html {
+  font-family: Arial, Verdana, Helvetica, sans-serif;
+  background: #6d6660;
+}
+#bd {
+  font-size: 125%;
+  line-height: 1.5em;
+  text-align: justify;
+  background: #4f473f;
+  color: #ddd;
+  border-top: 2px solid #551413;
+  border-bottom: 2px solid #551413;
+}
+#bd h1 { font-weight: bold; font-size: 160%; padding: 0 0 12px 0; }
+#bd h2 { font-weight: bold; font-size: 140%; padding: 0 0 12px 0; }
+#bd h3 { font-weight: bold; font-size: 120%; padding: 0 0 12px 0; }
+#bd p { padding: 0 0 12px 0; }
+
+.content {
+  width: 950px;
+  margin: 0 auto;
+}
+.yui-g {
+  padding: 1.5em 0 .5em 0;
+}
+#logo {
+  display: inline;
+  float: left;
+  padding-bottom: 5px;
+}
+#navigation {
+  display: inline;
+  float: right;
+}
+#navigation.top {
+  font-size: 135%;
+  position: relative;
+  top: 152px;
+  right: 2px;
+}
+#navigation.bottom {
+  position: relative;
+  top: 0;
+  right: 2px;
+}
+#navigation ul {
+  list-style-type: none;
+}
+#navigation ul li {
+  display: inline;
+  float: left;
+}
+#navigation ul li a {
+  padding: 1em 0 1em 1.8em;
+  color: #ccc;
+  text-decoration: none;
+}
+#navigation ul li a:hover {
+  color: #fff;
+}
+#ft {
+  font-size: 120%;
+  color: #ddd;
+  padding: .25em 0;
+}
+#copyright {
+  display: inline;
+  float: left;
+}
+strong {
+  font-weight: bold;
+  color: #fff;
+}
+a img.thumb {
+  border: 2px solid #4f473f;
+}
+a:hover img.thumb {
+  border: 2px solid #551413;
+}
+fieldset {
+  border: 1px solid #ddd;
+  padding: 1em;
+}
+fieldset div {
+  clear: both;
+  line-height: 2em;
+  padding: 0 0 10px 0;
+}
+legend {
+  color: #ddd;
+  font-weight: bold; 
+  font-size: 120%; 
+  padding: 0 .5em;
+}
+fieldset div > label:first-child {
+  display: inline;
+  float: left;
+  width: 180px;
+  line-height: 2em;
+}
+.form_hint {
+  font-size: 90%;
+  color: #888;
+}
+
+label.error {
+  padding: 0 0 0 30px;
+  margin: 0;
+  display: inline;
+  float: left;
+  color: #600;
+  line-height: 2em;
+  width: 180px;
+  background: url('../images/delete.png') 3px 1px no-repeat;
+}
+
+label.checked {
+  background: url('../images/check.png') 3px 1px no-repeat;
+}
 
 
 

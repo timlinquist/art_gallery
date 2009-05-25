@@ -1,5 +1,5 @@
 <?php 
-  require "../php/header.php";
+  require "admin_header.php";
   require "../php/class.Finders.php";
 	require "../php/class.EditCategoryForm.php";
 	require "../php/class.AddCategoryForm.php";
@@ -21,5 +21,5 @@
 	$category_form->render();
 	
 	echo $script_to_load;
-	require "../php/footer.php"; 
+	require "admin_footer.php"; 
 ?>

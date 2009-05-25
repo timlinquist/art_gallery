@@ -7,7 +7,7 @@ $(document).ready(function () {
 		$('#loader').hide();
 		var myUpload = $('#upload_link').upload({
 		   name: 'photo_upload',
-		   action: './php/controller.php',
+		   action: '../php/controller.php',
 		   enctype: 'multipart/form-data',
 		   params: {action:'upload_photo'},
 		   autoSubmit: true,

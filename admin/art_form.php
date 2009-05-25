@@ -1,5 +1,5 @@
 <?php 
-  require "../php/header.php";
+  require "admin_header.php";
   require "../php/class.Finders.php";
 	require "../php/class.EditArtForm.php";
 	require "../php/class.AddArtForm.php";
@@ -22,5 +22,5 @@
 	$scripts_to_load .= "<script type='text/javascript' src='../javascript/one_click_upload_for_object.js'></script>";
 	
 	echo $scripts_to_load;
-	require "../php/footer.php"; 
+	require "admin_footer.php"; 
 ?>

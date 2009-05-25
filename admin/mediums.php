@@ -1,6 +1,6 @@
 <?php 
 	require "../php/class.Finders.php";
-  require "../php/header.php";
+  require "admin_header.php";
 
 	$finder= new Finders();
 	$mediums= $finder->all_mediums();
@@ -25,5 +25,5 @@
 </script>
 
 <?php 
-  require "../php/footer.php";
+	require "admin_footer.php"; 
 ?>

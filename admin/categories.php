@@ -1,5 +1,5 @@
 <?php 
-  require "../php/header.php";
+  require "admin_header.php";
 	require "../php/class.Finders.php";
 
 	$finder= new Finders();
@@ -24,5 +24,5 @@
 	});
 </script>
 <?php 
-  require "../php/footer.php";
+	require "admin_footer.php"; 
 ?>

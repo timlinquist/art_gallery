@@ -1,5 +1,5 @@
 <?php 
-  require "../php/header.php";
+  require "admin_header.php";
 	require "../php/class.Finders.php";
 	require "../php/class.Art.php";
 
@@ -26,5 +26,5 @@
 </script>
 
 <?php 
-  require "../php/footer.php";
+	require "admin_footer.php"; 
 ?>
