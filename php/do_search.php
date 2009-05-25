@@ -31,6 +31,12 @@
 	{
 		$search_filter= new SearchFilters($_POST["artist"], $_POST["category"], $_POST["medium"]);
 		$art= $search_filter->filter_art_by_all();
-		$art_display=	new ArtDisplay();
-		echo $art_display->display_art( $art );
+		if(count($art) > 0)
+		{
+			$art_display=	new ArtDisplay();
+			echo $art_display->display_art( $art );			
+		}
+		else{
+			echo "No art was found for the options you selected.";
+		}
 	}
