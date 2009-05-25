@@ -29,8 +29,12 @@
 		
 		public function display_artist_photo( $artist )
 		{
-			$photo= new Photo( $artist->get_photo_file() );			
-			return "<img src=\"".$photo->thumb_path()."\" alt=\"".$artist->get_name()."\" title=\"".$artist->get_name()."\" />";
+			$photo_file= $artist->get_photo_file();
+			if($photo_file != '' && $photo_file != null)
+			{
+				$photo= new Photo( $photo_file );			
+				return "<img src=\"".$photo->thumb_path()."\" alt=\"".$artist->get_name()."\" title=\"".$artist->get_name()."\" />";				
+			}
 		}
 		
 		private function admin_options( $id )

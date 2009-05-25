@@ -4,7 +4,7 @@
 	require_once("class.Art.php");
 	
 	class ArtDisplay{
-		function __construct(){ }
+		function __construct($admin_access=false){ $this->admin_access= $admin_access; }
 		function __get($prop_name){ return $this->$prop_name; }
 	  function __set($prop_name, $value ){ $this->$prop_name = $value; }
 
@@ -15,20 +15,25 @@
 
 		public function display_art_piece( $art_piece )
 		{
+			$admin_options= ($this->admin_access) ? $this->buttons( $art_piece->get_id() ) : "";
 			echo "<div id=\"art_".$art_piece->get_id()."\">"
 							.$this->display_art_photo( $art_piece )
 							. "<p><strong>Name:&nbsp;</strong><span>"
 							. $art_piece->get_name()
 							. "<p><strong>Category:&nbsp;</strong><span>"
-							. $this->get_category_name($art_piece)							
-							.$this->buttons( $art_piece->get_id() )
+							. $this->get_category_name($art_piece)	
+							.	$admin_options						
 					."</div>";
 		}
 		
 		public function display_art_photo( $art_piece )
 		{
-			$photo= new Photo( $art_piece->get_photo_file() );			
-			return "<img src=\"".$photo->thumb_path()."\" alt=\"".$art_piece->get_name()."\" title=\"".$art_piece->get_name()."\" />";
+			$photo_file= $art_piece->get_photo_file();
+			if($photo_file != '' && $photo_file != null)
+			{
+				$photo= new Photo( $photo_file);			
+				return "<img src=\"".$photo->thumb_path()."\" alt=\"".$art_piece->get_name()."\" title=\"".$art_piece->get_name()."\" />";
+			}
 		}
 		
 		private function get_category_name($art_piece)
