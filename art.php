@@ -11,7 +11,7 @@
 	if( count($art) > 0 )
 	{
 		include "./php/class.ArtDisplay.php";		
-		$art_display= new ArtDisplay;
+		$art_display= new ArtDisplay(true);
 		$art_display->display_art( $art );
 	}
 	else
