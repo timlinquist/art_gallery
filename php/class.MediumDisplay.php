@@ -26,11 +26,11 @@
 		}
 		private function edit_button( $id )
 		{ 
-			return "<a href='medium_form.php?medium=$id' title='edit medium' class='edit_medium'><img src='./images/edit.png' title='edit medium' alt='edit medium' /></a>"; 
+			return "<a href='medium_form.php?medium=$id' title='edit medium' class='edit_medium'><img src='../images/edit.png' title='edit medium' alt='edit medium' /></a>"; 
 		}
 		private function delete_button( $id )
 		{
-			 return "<a href='#' title='delete medium' id='delete_medium_$id'><img src='./images/delete.png' title='delete medium' alt='delete medium' /></a>"; 
+			 return "<a href='#' title='delete medium' id='delete_medium_$id'><img src='../images/delete.png' title='delete medium' alt='delete medium' /></a>"; 
 		}
 	}
 ?>

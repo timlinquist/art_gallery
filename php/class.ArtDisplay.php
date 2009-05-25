@@ -1,6 +1,6 @@
 <?php 
 	require_once("class.Finders.php");
-	require_once( "class.Photo.php" );
+	require_once("class.Photo.php" );
 	require_once("class.Art.php");
 	
 	class ArtDisplay{
@@ -74,11 +74,11 @@
 		}
 		private function edit_button( $id )
 		{ 
-			return "<a href='art_form.php?art=$id' title='edit art' class='edit_art'><img src='./images/edit.png' title='edit art' alt='edit art' /></a>"; 
+			return "<a href='art_form.php?art=$id' title='edit art' class='edit_art'><img src='../images/edit.png' title='edit art' alt='edit art' /></a>"; 
 		}
 		private function delete_button( $id )
 		{
-			 return "<a href='#' title='delete art' id='delete_art_$id'><img src='./images/delete.png' title='delete art' alt='delete art' /></a>"; 
+			 return "<a href='#' title='delete art' id='delete_art_$id'><img src='../images/delete.png' title='delete art' alt='delete art' /></a>"; 
 		}
 	}
 ?>

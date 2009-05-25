@@ -24,11 +24,11 @@
 		}
 		private function edit_button( $id )
 		{ 
-			return "<a href='category_form.php?category=$id' title='edit category' class='edit_category'><img src='./images/edit.png' title='edit category' alt='edit category' /></a>"; 
+			return "<a href='category_form.php?category=$id' title='edit category' class='edit_category'><img src='../images/edit.png' title='edit category' alt='edit category' /></a>"; 
 		}
 		private function delete_button( $id )
 		{
-			 return "<a href='#' title='delete category' id='delete_category_$id'><img src='./images/delete.png' title='delete category' alt='delete category' /></a>"; 
+			 return "<a href='#' title='delete category' id='delete_category_$id'><img src='../images/delete.png' title='delete category' alt='delete category' /></a>"; 
 		}
 	}
 ?>

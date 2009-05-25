@@ -1,6 +1,6 @@
 <?php 
-	require "./php/class.Finders.php";
-  require "./php/header.php";
+	require "../php/class.Finders.php";
+  require "../php/header.php";
 
 	$finder= new Finders();
 	$mediums= $finder->all_mediums();
@@ -9,7 +9,7 @@
 
 	if( count($mediums) > 0 )
 	{
-		include "./php/class.MediumDisplay.php";		
+		include "../php/class.MediumDisplay.php";		
 		$medium_display= new MediumDisplay(true);		
 		$medium_display->display_mediums( $mediums );
 	}
@@ -25,5 +25,5 @@
 </script>
 
 <?php 
-  require "./php/footer.php";
+  require "../php/footer.php";
 ?>

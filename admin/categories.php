@@ -1,6 +1,6 @@
 <?php 
-  require "./php/header.php";
-	require "./php/class.Finders.php";
+  require "../php/header.php";
+	require "../php/class.Finders.php";
 
 	$finder= new Finders();
 	$categories= $finder->all_categories();
@@ -9,7 +9,7 @@
 
 	if( count($categories) > 0 )
 	{
-		include "./php/class.CategoryDisplay.php";		
+		include "../php/class.CategoryDisplay.php";		
 		$category_display= new CategoryDisplay;		
 		$category_display->display_categories( $categories );
 	}
@@ -24,5 +24,5 @@
 	});
 </script>
 <?php 
-  require "./php/footer.php";
+  require "../php/footer.php";
 ?>
