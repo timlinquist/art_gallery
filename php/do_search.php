@@ -31,8 +31,12 @@
 	{
 		$search_filter= new SearchFilters($_POST["artist"], $_POST["category"], $_POST["medium"]);
 		$art= $search_filter->filter_art_by_all();
-		if(count($art) > 0)
+		if(count($art) > 0 && count($art) <= 10)
 		{
+			$art_display=	new ArtDisplay();
+			echo $art_display->display_art( $art );						
+		}
+		elseif(count($art) > 0){
 			$art_display=	new ArtDisplay();
 			echo $art_display->display_art( $art );			
 		}
