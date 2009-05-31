@@ -21,6 +21,13 @@
    <script type='text/javascript' src='./javascript/form.js'></script>
 </head>
 <body>
+	<noscript>
+		<p style='font-size: 20px;'><strong>
+			We noticed that you do not have javascript turned on.  
+			Please enable javascript (at least for our site) or you will not be able to properly use Entree's Online Gallery.
+		</strong></p>
+	</noscript>
+	
   <div id="custom-doc" class="yui-t7">
     <div id="hd" class="content">
       <div id="logo"><img src="./images/logo.png" width="270" height="170" alt="The Entree Gallery Logo" /></div>
