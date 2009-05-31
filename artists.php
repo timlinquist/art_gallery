@@ -32,10 +32,12 @@
 	{
 		echo "<p>No artists are listed at this time.</p>";		
 	}
-
-  require "./php/footer.php";
 ?>
 
-$(document).ready(function(){
-	lightbox_photos();
-})
+<script type="text/javascript">
+	$(document).ready(function(){
+			lightbox_photos();			
+	});
+</script>
+
+<?php require "./php/footer.php"; ?>
