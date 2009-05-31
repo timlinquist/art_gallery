@@ -22,6 +22,7 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 			delete_objects("art");
+			lightbox_photos();			
 		});
 </script>
 

@@ -18,3 +18,7 @@
 	}
   require "./php/footer.php";
 ?>
+
+$(document).ready(function(){
+	lightbox_photos();
+})

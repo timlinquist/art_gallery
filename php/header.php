@@ -9,8 +9,10 @@
    <link rel="stylesheet" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" type="text/css" />
    <link rel="stylesheet" href="./css/slimbox2.css" type="text/css" media="screen" charset="utf-8" />
 	 <link rel="stylesheet" href="./css/base.css" type="text/css" media="screen" charset="utf-8" />	
-
+	 <link rel="stylesheet" href="./css/jquery.lightbox-0.5.css" type="text/css" media="screen" charset="utf-8" />	
+	 
    <script type="text/javascript" charset="utf-8" src="./javascript/jquery-1.3.2.min.js"></script>
+	 <script type="text/javascript" src="./javascript/jquery.lightbox-0.5.pack.js"></script>
 	 <script type="text/javascript" charset="utf-8" src="./javascript/slimbox2.js"></script>
    <script type="text/javascript" charset="utf-8" src="./javascript/jquery.form.js"></script>
    <script type="text/javascript" charset="utf-8" src="./javascript/ocupload.js"></script>

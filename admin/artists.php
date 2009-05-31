@@ -39,6 +39,7 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 			delete_objects("artist");
+			lightbox_photos();			
 		});
 </script>
 

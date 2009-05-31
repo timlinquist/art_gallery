@@ -2,6 +2,10 @@ jQuery.fn.blindFadeToggle = function(speed, easing, callback) {
   return this.animate({opacity: 'toggle', height: 'toggle'}, speed, easing, callback);
 }
 
+function lightbox_photos() {
+	$('.lb_photo_wrapper a').lightBox();
+}
+
 function flash_notice_message(msg){
 	flash_message("notice", msg);
 }

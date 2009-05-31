@@ -34,8 +34,10 @@
 			$photo_file= $artist->get_photo_file();
 			if($photo_file != '' && $photo_file != null)
 			{
-				$photo= new Photo( $photo_file );			
-				return "<img src=\"".$photo->thumb_path()."\" alt=\"".$artist->get_name()."\" title=\"".$artist->get_name()."\" />";				
+				$photo= new Photo( $photo_file );	
+				$full_size_for_lightbox= "<div class='lb_photo_wrapper'><a href=\"".$photo->full_size_path()."\">";
+				$thumbnail_img= "<img src=\"".$photo->thumb_path()."\" alt=\"".$artist->get_name()."\" title=\"".$artist->get_name()."\" /></a></div>";
+				return $full_size_for_lightbox.$thumbnail_img;
 			}
 		}
 		
