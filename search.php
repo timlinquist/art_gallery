@@ -5,7 +5,10 @@
 	echo "<script type='text/javascript' src='./javascript/art_search.js'></script>";
 	$search_form= new ArtSearchForm();
 
-	echo "<a href='#' id='reset_form'>Reset Form</a>";
+	echo "<form action='./php/do_search.php' id='reset_form' method='post'>
+					<input type='hidden' name='reset' id='reset' value='true' />
+					<input type='submit' value='Reset Form' />
+				</form>";
 	echo "<div id='art_search_container'>";
 	$search_form->render_form();
 	echo "</div>";

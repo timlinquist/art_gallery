@@ -38,23 +38,36 @@ function bind_pagination() {
 }
 
 function reset_form_click() {
-	$('#reset_form').click(function() {
-		$.ajax({
-		   type: "POST",
-		   url: "./php/do_search.php",
-		   data: "reset="+true,
-		   success: function(response){
-				$('#search_results').html('');
-				unbind_selects_change_event();
-				unbind_pagination_links();
-				unbind_search_submit();
-				reset_form(response);
-				bind_change_events();
-				bind_search_submit();
-				bind_pagination();
-		   }
-		 });		
-	});
+	$('#reset_form').ajaxForm({
+	   success: function(response)
+		 {
+		 		$('#search_results').html('');
+		 		unbind_selects_change_event();
+		 		unbind_pagination_links();
+		 		unbind_search_submit();
+		 		reset_form(response);
+		 		bind_change_events();
+		 		bind_search_submit();
+		 		bind_pagination();
+		 }  
+	});		
+	// $('#reset_form').click(function() {
+	// 	$.ajax({
+	// 	   type: "POST",
+	// 	   url: "./php/do_search.php",
+	// 	   data: "reset="+true,
+	// 	   success: function(response){
+	// 			$('#search_results').html('');
+	// 			unbind_selects_change_event();
+	// 			unbind_pagination_links();
+	// 			unbind_search_submit();
+	// 			reset_form(response);
+	// 			bind_change_events();
+	// 			bind_search_submit();
+	// 			bind_pagination();
+	// 	   }
+	// 	 });		
+	// });
 }
 
 function reset_form(response){

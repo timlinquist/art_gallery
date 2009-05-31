@@ -25,7 +25,7 @@ $(document).ready(function () {
 						$('#uploaded_image').html(uploaded_thumbnail);
 						$('#photo_file').val(uploaded_img);
 					}else{
-						$('#upload_status').show().html('<p>An unexpected error occurred.</p>');
+						$('#upload_status').show().html('<p>Unable to upload photo.  Photo files must be of type jpeg, jpg, png, or gif.  They must also be less than 1megabyte in size.</p>');
 						$('#uploaded_image').html('');
 					}
 		   }
