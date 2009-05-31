@@ -14,9 +14,9 @@
 		public function render_inputs(){ parent::render_inputs( $this->art ); }		
 		
 		protected function generate_select_with_opts($field, $value, $named_method_to_eval)
-		{
+		{			
 			$select_list	= "<select name='$field' id='$field' />"; 
-			$select_opts = eval( "return \$this->generate_$named_method_to_eval($value);" );
+			$select_opts = eval( "return \$this->generate_$named_method_to_eval(\$value);" );
 			$select_list .= $select_opts;
 			$select_list .= "</select>";
 			return $select_list;
@@ -70,9 +70,8 @@
 		}
 		private function generate_galleries($gallery_to_select=null)
 		{
-			$galleries= array("West Gallery", "East Gallery");
 			$options="";
-			foreach( $galleries as $gallery )
+			foreach( $GLOBALS['galleries'] as $gallery )
 			{ 
 				$selected = ($gallery==$gallery_to_select) ? "selected='1'" : "";
 				$options .= "<option value='$gallery' $selected>$gallery</option>"; 

@@ -58,9 +58,8 @@
 		}
 		private function generate_galleries($gallery_to_select=null)
 		{
-			$galleries= array("West Gallery", "East Gallery");
 			$options="";
-			foreach( $galleries as $gallery )
+			foreach( $GLOBALS['galleries'] as $gallery )
 			{ 
 				$options .= "<option value='$gallery'>$gallery</option>"; 
 			}

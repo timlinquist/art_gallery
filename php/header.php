@@ -1,3 +1,5 @@
+<?php require_once 'set_globals.php' ?>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
@@ -30,7 +32,7 @@
           <li><a href="artists.php">artists</a></li>
           <li><a href="search.php">search</a></li>
           <li><a href="#">about</a></li>
-          <li><a href="#">contact</a></li>
+          <li><a href="contact.php">contact</a></li>
         </ul>
       </div>
     </div>
