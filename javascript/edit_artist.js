@@ -20,7 +20,15 @@ $(document).ready(function() {
 		rules: {
 			name: {
 			  required: true,
-			  minlength: 2
+			  minlength: 2,
+				remote: {
+	        url: "check_name.php",
+	        type: "post",
+	        data: {
+						table_name: "artists",
+	          name: function() { return $("#name").val();}
+	        }
+	      }
 			},
 			biography: {
 			  required: true
@@ -37,7 +45,8 @@ $(document).ready(function() {
 		messages: {
 			name: {
 				name: "Enter the name",
-				minlength: "Invalid name"
+				minlength: "Invalid name",
+				remote: "Please enter a unique name."
 			},
 			biography: {
 				required: "Enter the biography"

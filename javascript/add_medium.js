@@ -18,13 +18,22 @@ $(document).ready(function() {
 		rules: {
 			name: {
 			  required: true,
-			  minlength: 2
+			  minlength: 2,
+				remote: {
+	        url: "check_name.php",
+	        type: "post",
+	        data: {
+						table_name: "mediums",
+	          name: function() { return $("#name").val();}
+	        }
+	      }
 			}
 		},
 		messages: {
 			name: {
 				name: "Enter the name",
-				minlength: "Invalid name"
+				minlength: "Invalid name",
+				remote: "Please enter a unique name."
 			}
 		},
 		// set this class to error-labels to indicate valid fields
