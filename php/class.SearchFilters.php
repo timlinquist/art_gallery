@@ -52,11 +52,7 @@
 		
 	  private function no_where_clause_for_filter()
 	  {
-			(!$this->medium_defined())	  
-			&&
-			(!$this->category_defined())	  
-			&&
-			(!$this->artist_defined());	  			
+			return (!$this->medium_defined()) && (!$this->category_defined()) && (!$this->artist_defined());	  			
 		}
 				
 		public function filtered_by_category()

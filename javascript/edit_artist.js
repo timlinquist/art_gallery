@@ -26,6 +26,7 @@ $(document).ready(function() {
 	        type: "post",
 	        data: {
 						table_name: "artists",
+						edit_mode: "true",
 	          name: function() { return $("#name").val();}
 	        }
 	      }

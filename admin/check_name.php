@@ -5,6 +5,8 @@
 	{
 		$name= mysql_real_escape_string(trim($name));
 		$table_name= mysql_real_escape_string(trim($table_name));
+		
+		//When in edit_mode if name matches find_by_id
 		$query = "SELECT COUNT(ID) AS name_count FROM $table_name where name= '$name'";
 		$result= mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
 		$row = mysql_fetch_assoc( $result );
@@ -15,6 +17,7 @@
 	
 	$table_name= $_POST['table_name'];
 	$name= $_POST['name'];
+	
 	switch( $table_name )
 	{
 		case 'art':

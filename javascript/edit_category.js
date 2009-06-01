@@ -24,6 +24,7 @@ $(document).ready(function() {
 	        type: "post",
 	        data: {
 						table_name: "categories",
+						edit_mode: "true",
 	          name: function() { return $("#name").val();}
 	        }
 	      }
