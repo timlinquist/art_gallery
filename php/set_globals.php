@@ -1,3 +1,5 @@
 <?php
-	$galleries= array("West Gallery", "East Gallery");
+	$galleries= array("Reeder Bay Gallery","Coolin Bay Gallery");
 ?>
+
+
