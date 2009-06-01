@@ -27,7 +27,8 @@ $(document).ready(function() {
 	        data: {
 						table_name: "artists",
 						edit_mode: "true",
-	          name: function() { return $("#name").val();}
+	          name: function() { return $("#name").val();},
+	          id: function() { return $("#id").val();}
 	        }
 	      }
 			},
