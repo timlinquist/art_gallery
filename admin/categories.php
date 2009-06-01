@@ -5,7 +5,7 @@
 	$finder= new Finders();
 	$categories= $finder->all_categories();
 
-	echo "<a href='category_form.php' title='add category'>Add a category</a>";
+	echo "<a class='button' href='category_form.php' title='add category'>Add a category</a>";
 
 	if( count($categories) > 0 )
 	{

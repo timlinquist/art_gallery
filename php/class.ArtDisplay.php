@@ -73,8 +73,8 @@
 		
 		private function buttons($id)
 		{
-			return "<div id=\"edit_art_".$id."\">".$this->edit_button( $id )."</div>"
-						. "<div id=\"delete_art_".$id."\" class='delete_art'>".$this->delete_button( $id )."</div>";
+			return "<div id=\"edit_art_".$id."\" class='edit_button'>".$this->edit_button( $id )."</div>"
+						. "<div id=\"delete_art_".$id."\" class='delete_button'>".$this->delete_button( $id )."</div>";
 		}
 		private function edit_button( $id )
 		{ 

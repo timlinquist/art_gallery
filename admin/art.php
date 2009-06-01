@@ -6,7 +6,7 @@
 	$finder= new Finders();
 	$art= $finder->all_art();
 
-	echo "<a href='art_form.php' title='add art'>Add an art piece</a>";
+	echo "<a class='button' href='art_form.php' title='add art'>Add an art piece</a>";
 	
 	if( count($art) > 0 )
 	{

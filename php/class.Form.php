@@ -10,8 +10,8 @@
 				echo $this->legend();				
 				$this->render_inputs();				
 				echo $this->get_action_input_for_controller();
-				echo "</fieldset>\n";
 				echo $this->submit_button();
+				echo "</fieldset>\n";
 			echo "</form>\n";
 		}		
 		public function render_inputs($object_for_form)
@@ -61,7 +61,7 @@
 				return ($id !=null && $id != ""); 
 		}
 		protected function legend(){ return "OVERRIDE ME ( render_inputs() ) IN SUBCLASSES TO PRINT INPUTS FOR SPECIFIC CHILD FORM!"; }		
-		protected function submit_button(){ return "<input type='submit' value='Save' />"; }
+		protected function submit_button(){ return "<div class='form_buttons'><input type='submit' value='Save' /></div>"; }
 		protected function hidden_input($field, $value)
 		{
 			return "<input type='hidden' name='$field' id='$field' value='$value' />"; 

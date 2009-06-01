@@ -16,7 +16,8 @@ html {
 #bd h2 { font-weight: bold; font-size: 140%; padding: 0 0 12px 0; }
 #bd h3 { font-weight: bold; font-size: 120%; padding: 0 0 12px 0; }
 #bd p { padding: 0 0 12px 0; }
-
+#bd a { color: #ccc; text-decoration: none; }
+#bd a:hover { color: #fff; text-decoration: underline; }
 .content {
   width: 950px;
   margin: 0 auto;
@@ -81,6 +82,7 @@ a:hover img.thumb {
 fieldset {
   border: 1px solid #ddd;
   padding: 1em;
+  clear: both;
 }
 fieldset div {
   clear: both;
@@ -118,6 +120,28 @@ label.error {
 label.checked {
   background: url('../images/check.png') 3px 1px no-repeat;
 }
-
-
+#photo_upload_container {
+  padding: 2em 0;
+}
+a.button {
+  border: 2px solid #400;
+  display: inline;
+  float: right;
+  padding: 5px 10px;
+  background: #551413;
+  color: #ccc;
+  text-decoration: none;
+}
+a:hover.button {
+  color: #fff;
+  text-decoration: none;
+}
+.edit_button, .delete_button {
+  display: inline;
+  float: left;
+  padding: 10px 10px 10px 0;
+}
+div.art {
+  clear: both;
+}
 

@@ -5,7 +5,7 @@
 	$finder= new Finders();
 	$mediums= $finder->all_mediums();
 
-	echo "<a href='medium_form.php' title='add medium'>Add a medium</a>";
+	echo "<a class='button' href='medium_form.php' title='add medium'>Add a medium</a>";
 
 	if( count($mediums) > 0 )
 	{

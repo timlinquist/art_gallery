@@ -16,7 +16,7 @@
 		$scripts_to_load  = "<script type='text/javascript' src='../javascript/add_art.js'></script>";
 		$art_form= new AddArtForm();		
 	}
-	echo "<a href='art.php' alt='view art'>View art</a>";
+	echo "<a class='button' href='art.php' alt='view art'>view art</a>";
 	$art_form->render();
 	include "photo_upload_form.php";
 	$scripts_to_load .= "<script type='text/javascript' src='../javascript/one_click_upload_for_object.js'></script>";

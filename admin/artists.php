@@ -5,7 +5,7 @@
 	$finder= new Finders();
 	$artists= $finder->all_artists();
 
-	echo "<a href='artist_form.php' title='add artist'>Add an artist</a>";
+	echo "<a class='button' href='artist_form.php' title='add artist'>Add an artist</a>";
 
 	if( count($artists) > 0 )
 	{
