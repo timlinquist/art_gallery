@@ -71,8 +71,8 @@
 		/** Find the container and make it nice and snug */
 		var container = element.parent().css({
 			position: 'relative',
-			height: element.outerHeight()+'px',
-			width: element.outerWidth()+'px',
+			height: element.outerHeight()+10+'px',
+			width: element.outerWidth()+10+'px',
 			overflow: 'hidden',
 			cursor: 'pointer',
 			margin: 0,

@@ -17,7 +17,7 @@
 		$category_form= new AddCategoryForm();		
 	}
 	
-	echo "<a href='categories.php' alt='view categories'>View categories</a>";
+	echo "<a class='button' href='categories.php' alt='view categories'>View categories</a>";
 	$category_form->render();
 	
 	echo $script_to_load;
