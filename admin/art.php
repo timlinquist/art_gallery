@@ -10,9 +10,25 @@
 	
 	if( count($art) > 0 )
 	{
+		require "../php/Paginated.php";
+		require "../php/DoubleBarLayout.php";
 		include "../php/class.ArtDisplay.php";		
 		$art_display= new ArtDisplay(true);
-		$art_display->display_art( $art );
+		
+		$page= ( isset($_GET['page']) ) ? $_GET['page'] : 1;		
+		$pagedResults = new Paginated($art, 10, $page);
+
+		$paginated_results = "<ul>";
+
+		while($row = $pagedResults->fetchPagedRow()) {	//when $row is false loop terminates
+			$paginated_results .= "<li>". $art_display->display_art_piece( $row ) ."</li>";
+		}
+		$paginated_results .= "</ul>";
+		//important to set the strategy to be used before a call to fetchPagedNavigation
+		$pagedResults->setLayout(new DoubleBarLayout());
+		$paginated_results .= $pagedResults->fetchPagedNavigation();
+		
+		echo $paginated_results;
 	}
 	else
 	{
