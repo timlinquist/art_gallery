@@ -34,7 +34,7 @@ By: Michael John G. Lopez - www.sydel.net
 		
 		function __get($prop_name){ return $this->$prop_name; }
 	  function __set($prop_name, $value ){ $this->$prop_name = $value; }
-		function __construct($photo, $file_name, $percent=null, $constrain=null, $w=100, $h=100)
+		function __construct($photo, $file_name, $percent=40, $constrain=null, $w=null, $h=null)
 		{ 
 			$this->photo= $photo;
 			$this->file_name=$file_name; 

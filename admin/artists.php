@@ -43,15 +43,8 @@
 
       $("a.show_hide_link").click( function() {
         id_parts = this.id.split('_');
-        artist_bio_id = "p#artist_bio_" + id_parts[2];
-        if( this.text == "show" ) {
-          $(artist_bio_id).show('slow');
-          $("a.show_hide_link").html("hide");
-        }
-        else {
-          $(artist_bio_id).hide('slow');
-          $("a.show_hide_link").html("show");
-        }
+        artist_element_id = "p#artist_" + id_parts[1] + "_" + id_parts[2];
+        $(artist_element_id).toggle('slow');
       });
 
 	});

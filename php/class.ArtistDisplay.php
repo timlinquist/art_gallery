@@ -22,10 +22,11 @@
 			
 			echo "<div id=\"artist_".$artist->get_id()."\" class='artist'>"
 			  .$this->display_artist_photo( $artist )
-				."<p id=\"artist_name_".$artist->get_id()."\"><strong>" .$artist_name. "</strong></p>"
-				."<p><strong>Biography:</strong><a class=\"show_hide_link\" id=\"toggle_bio_".$artist->get_id()."\" href=\"javascript:void(0)\">show</a></p>"
+				."<p style=\"\" id=\"artist_name_".$artist->get_id()."\"><strong>" .$artist_name. "</strong></p>"
+				."<p><a class=\"show_hide_link\" id=\"toggle_bio_".$artist->get_id()."\" href=\"javascript:void(0)\">biography</a>"
 				.$this->admin_options( $artist->get_id() )
-				."<p style=\"display: none;\" id=\"artist_bio_".$artist->get_id()."\">".$this->clean_output($artist->get_biography()). "</p>\n"
+				."<p class=\"artist_bio\" id=\"artist_bio_".$artist->get_id()."\">".$this->clean_output($artist->get_biography()). "</p>\n"
+				."<p class=\"artist_contact\" id=\"artist_contact_".$artist->get_id()."\">".$artist->get_phone(). "<br />".$artist->get_email()."</p>\n"
 				."</div>";
 		}
 		
@@ -50,7 +51,8 @@
 		{
 			if ($this->admin_access) 
 			{
-				return "<div class=\"edit_button\" id=\"edit_artist_".$id."\">".$this->edit_button( $id )."</div>"
+				return "<a style=\"padding-top: 15px;\" class=\"show_hide_link edit_button\" id=\"toggle_contact_".$id."\" href=\"javascript:void(0)\">contact info</a></p>"
+				      ."<div class=\"edit_button\" id=\"edit_artist_".$id."\">".$this->edit_button( $id )."</div>"
 				      ."<div class=\"delete_button\" id=\"delete_artist_".$id."\" class='delete_artist'>".$this->delete_button( $id )."</div>";
 			}			
 		}				

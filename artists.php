@@ -16,7 +16,7 @@
 		$page= ( isset($_GET['page']) ) ? $_GET['page'] : 1;		
 		$pagedResults = new Paginated($artists, 10, $page);
 
-		$paginated_results = "<ul>";
+		$paginated_results = "<div class='pagination'><ul>";
 
 		while($row = $pagedResults->fetchPagedRow()) {	//when $row is false loop terminates
 			$paginated_results .= "<li>". $artist_display->display_artist( $row) ."</li>";
@@ -26,7 +26,7 @@
 		$pagedResults->setLayout(new DoubleBarLayout());
 		$paginated_results .= $pagedResults->fetchPagedNavigation();
 		
-		echo $paginated_results;
+		echo $paginated_results."</div>";
 	}
 	else
 	{
@@ -37,6 +37,12 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 			lightbox_photos();			
+
+      $("a.show_hide_link").click( function() {
+        id_parts = this.id.split('_');
+        artist_element_id = "p#artist_" + id_parts[1] + "_" + id_parts[2];
+        $(artist_element_id).toggle('slow');
+      });
 	});
 </script>
 

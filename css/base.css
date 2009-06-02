@@ -140,6 +140,7 @@ a:hover.button {
   display: inline;
   float: left;
   padding: 5px 10px 5px 0;
+  vertical-align: middle;
 }
 div.art {
   clear: both;
@@ -154,9 +155,11 @@ div.pagination {
   padding: 1em;
   text-align: center;
 }
-a.show_hide_link {
-  padding-left: 15px;
+p.artist_bio, p.artist_contact {
+  display: none;
+  clear: both;
 }
 div.artist {
+  clear: both;
   padding: 10px 0 20px 0;
 }
