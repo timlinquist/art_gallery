@@ -139,8 +139,24 @@ a:hover.button {
 .edit_button, .delete_button {
   display: inline;
   float: left;
-  padding: 10px 10px 10px 0;
+  padding: 5px 10px 5px 0;
 }
 div.art {
   clear: both;
+}
+.lb_photo_wrapper {
+  display: inline;
+  float: left;
+  padding-right: 15px;
+}
+div.pagination {
+  clear: both;
+  padding: 1em;
+  text-align: center;
+}
+a.show_hide_link {
+  padding-left: 15px;
+}
+div.artist {
+  padding: 10px 0 20px 0;
 }
