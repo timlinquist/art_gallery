@@ -36,8 +36,7 @@
       <div id="logo"><img src="../images/logo.png" width="270" height="170" alt="The Entree Gallery Logo" /></div>
       <div id="navigation" class="top">
         <ul>
-          <li><a href="#">events</a></li>
-          <li><a href="#">feature shows</a></li>
+          <li><a href="../calendar/events/">events</a></li>
           <li><a href="art.php">art</a></li>
 	        <li><a href="artists.php">artists</a></li>
 	        <li><a href="categories.php">categories</a></li>

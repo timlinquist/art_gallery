@@ -1,0 +1,19 @@
+Website Info Criteria
+1)	Photos of art & artists must be JPG and under One Megabyte (1 mb)
+2)	In order to enter a piece of art, you must first make sure the correct Category, Medium, and Artist exist in the system.
+
+
+Website Administration:
+1) For general info go to your admin page and login:   
+    http://www.entreegallery.com/admin
+    username:  entree
+    password:  artnall
+
+2) For calendar events / feature shows:
+    click "events" when you are inside the ADMIN section
+    OR 
+    http://www.entreegallery.com/calendar/events/
+    username:  entree
+    password:  artnall
+
+

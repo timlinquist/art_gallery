@@ -26,12 +26,12 @@ class Artists {
 				case "array":
 					foreach($attributes as $key => $value) 
 					{
-						$this->$key= mysql_real_escape_string(trim($value));
+						$this->$key= mysql_real_escape_string(trim(stripslashes($value)));
 					}
 				break;
 				case "string":
 				case "integer":
-					$id= mysql_real_escape_string(trim($attributes));
+					$id= mysql_real_escape_string(trim(stripslashes($attributes)));
 					$this->load($id);
 				break;
 

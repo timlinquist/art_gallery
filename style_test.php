@@ -3,13 +3,18 @@
 ?>
 
 <div id="artist_details" style="display: inline; float: left; width: 700px;">
-  <h1>Terry Lee</h1>
-  <p>The wild beauty of African wildlife is depicted in the paintings of artist Terry Lee.</p>
-  <p>Capturing his animals in a moment of time and in all of their majestic beauty, his impressionistic style, along with his magnificent sense of color, gives new meaning to Africa's spectacular scenery and wildlife.</p>
-  <p>Terry believes that traveling to Africa and seeing these animals in their native habitat helps him to see with "African Eyes". Terry feels that "I do my best to create a sense of energy and action. I capture emotional moments using color and light, sweeping brush strokes and bold swaths of color, drawing the eye into the scene. I want the viewer to feel the intense light and heat of the sun, creating atmosphere and mood".</p>
+  <h1>Header One</h1>
+  <h2>Header Two</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </div>
-<div id="art_examples" style="display: inline; float: right; width: 220px;">
-  <a href="./photos/full_size/rembrandt.jpg" title="this is a caption" rel="lightbox"><img class="thumb" src="./photos/thumb_size/rembrandt.jpg" alt="this is art" /></a>
+<div id="art_examples" style="display: inline; float: right; width: 200px;">
+  <a style="display: inline; float: right; padding: 5px 10px;" href="./photos/full_size/rembrandt.jpg" title="this is a caption" rel="lightbox-gallery"><img class="thumb" src="./photos/thumb_size/rembrandt.jpg" alt="this is art" /></a>
+  <a style="display: inline; float: right; padding: 5px 10px;" href="./photos/full_size/rembrandt.jpg" title="this is a caption" rel="lightbox-gallery"><img class="thumb" src="./photos/thumb_size/rembrandt.jpg" alt="this is art" /></a>
+  <a style="display: inline; float: right; padding: 5px 10px;" href="./photos/full_size/rembrandt.jpg" title="this is a caption" rel="lightbox-gallery"><img class="thumb" src="./photos/thumb_size/rembrandt.jpg" alt="this is art" /></a>
+  <a style="display: inline; float: right; padding: 5px 10px;" href="./photos/full_size/rembrandt.jpg" title="this is a caption" rel="lightbox-gallery"><img class="thumb" src="./photos/thumb_size/rembrandt.jpg" alt="this is art" /></a>
+  <a style="display: inline; float: right; padding: 5px 10px;" href="./photos/full_size/rembrandt.jpg" title="this is a caption" rel="lightbox-gallery"><img class="thumb" src="./photos/thumb_size/rembrandt.jpg" alt="this is art" /></a>
+  <a style="display: inline; float: right; padding: 5px 10px;" href="./photos/full_size/rembrandt.jpg" title="this is a caption" rel="lightbox-gallery"><img class="thumb" src="./photos/thumb_size/rembrandt.jpg" alt="this is art" /></a>
 </div>
 
 <?php

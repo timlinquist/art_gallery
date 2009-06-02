@@ -1,0 +1,14 @@
+artist bio (and other places for sure)
+    get rid of slashes on input (magic quotes?)
+    see if nl2br will work
+
+
+add email for info@entreegallery.com on contact page
+
+hide contact info for artists for public
+
+
+delete option for categories, mediums
+
+
+

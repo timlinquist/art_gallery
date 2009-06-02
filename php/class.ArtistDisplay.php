@@ -11,22 +11,22 @@
 			foreach($artists as $artist){ $this->display_artist( $artist ); }
     }	
 
+    public function clean_output( $output )
+    {
+      return stripslashes(str_replace(array("\\r\\n", "\\r", "\\n"), "<br />", $output));
+    }
+
 		public function display_artist( $artist )
 		{
 			$artist_name= ($this->admin_access) ? $artist->get_name() : $this->show_artist( $artist ) ;
 			
 			echo "<div id=\"artist_".$artist->get_id()."\" class='artist'>"
-							.$this->display_artist_photo( $artist ).
-							"<p><strong>Name:&nbsp;</strong><span>" . $artist_name . "</span></p>
-							<p><strong>Biography:</strong></p>
-							<p>".$artist->get_biography()."</p>
-							<div class=\"contact_info\">
-								<p><strong>Contact Information:</strong></p>
-								<p><strong>Phone:&nbsp;</strong><span>".$artist->get_phone()."</span></p>
-								<p><strong>Email:&nbsp;</strong><span>".$artist->get_email()."</span></p>
-							</div>"
-							.$this->admin_options( $artist->get_id() )
-					."</div>";
+			  .$this->display_artist_photo( $artist )
+				."<p><strong>" .$artist_name. "</strong></p>"
+				."<p><strong>Biography:</strong><a class=\"show_hide_link\" id=\"toggle_bio_".$artist->get_id()."\" href=\"javascript:void(0)\">show</a></p>"
+				."<p>".$this->clean_output($artist->get_biography()). "</p>\n"
+				.$this->admin_options( $artist->get_id() )
+				."</div>";
 		}
 		
 		public function display_artist_photo( $artist )

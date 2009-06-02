@@ -31,7 +31,7 @@
             $form_fields_to_render .= $this->text_input($property, $value_for_input);
           break;      
           case "textarea":
-            $form_fields_to_render .= $this->textarea_input($property, $value_for_input);
+            $form_fields_to_render .= $this->textarea_input($property, stripslashes($value_for_input));
 					break;
 					case "select":
 						switch($property)
