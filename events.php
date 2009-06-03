@@ -1,8 +1,39 @@
-<?php require "./php/header.php"; ?>
+<?php 
+require "./php/header.php"; 
+?>
+<h1>Event Calendar</h1><br />
+<?php
+// start with previous month
+if (!$_REQUEST['mo']) {
+  $mo = date("m");
+  $yr = date ("Y");
+  $mo = $mo - 1;
+  if ($mo < 1) {
+    $mo = 12;
+    $yr = $yr - 1;
+  }
+}
 
-<h1>Header One</h1>
-<h2>Header Two</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+// show 4 calendars
+$MULTI=1;
+$epcMultiWidth = "950px";
+$epcMultiPad = 10;
+$epcMultiNav = "950px";
+$epcMultiCol = 4;
+$epcMultiRow = 1;
+$epcMultiAdv = 2;
+require("/home/entree/public_html/calendar/calendar.php"); 
 
-<?php require "./php/footer.php"; ?>
+?>
+<br />
+<?php
+
+// show list of events
+$LIST=1;
+$listMonths="4";
+$DF = "M jS, Y (D)"; 
+$template="modern.php";
+require("/home/entree/public_html/calendar/calendar.php");
+
+require "./php/footer.php"; 
+?>

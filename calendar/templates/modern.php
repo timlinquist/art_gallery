@@ -33,15 +33,20 @@
 	width: 8px;
 	border-right: 1px solid #551413;
 }
-.tableDescr {
+span.tableDescr {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 100%;
+  font-size: 85%;
+  color: #000;
+}
+span.tableDescr div {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 110%;
 	color: #333;
 	text-align: left;
 	vertical-align: middle;
 	font-weight: normal;
 }
-.tableDescr strong {
+span.tableDescr div strong {
   color: #333;
   font-weight: bold;
 }
