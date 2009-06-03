@@ -2,66 +2,76 @@
 <style type="text/css">
 <!--
 .tableListings {
-	width: 680px;
-	border: 1px solid #006699;
+	width: 950px;
+	border: 1px solid #551413;
 	margin: 0px;
 	padding: 0px;
+  background: #c0ae95;
 }
 .tableDate {
-	font-family: Geneva, Arial, Helvetica, sans-serif;
-	font-size: 11px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 100%;
 	color: #000000;
 	width: 180px;
 	text-align: left;
 	vertical-align: middle;
 	font-weight: normal;
-	padding: 2px;
+	padding: 2px 14px;
+  background: #807973;
 }
 .tableTitle {
-	font-family: Geneva, Arial, Helvetica, sans-serif;
-	font-size: 11px;
-	color: #004262;
-	width: 500px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 100%;
+	color: #551413;
+	width: 950px;
 	text-align: left;
 	vertical-align: middle;
-	font-weight: bold;
-	padding: 2px;
+	font-weight: normal;
+	padding: 2px 4px;
 }
 .tableCategory {
 	width: 8px;
+	border-right: 1px solid #551413;
 }
 .tableDescr {
-	font-family: Geneva, Arial, Helvetica, sans-serif;
-	font-size: 11px;
-	color: #383838;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 100%;
+	color: #333;
 	text-align: left;
 	vertical-align: middle;
 	font-weight: normal;
 }
+.tableDescr strong {
+  color: #333;
+  font-weight: bold;
+}
 .tableTime {
-	font-family: Geneva, Arial, Helvetica, sans-serif;
-	font-size: 11px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 100%;
 	color: #295569;
 	font-weight: normal;
+	padding: 2px 4px;
 }
-.newDate {color: #FFFFFF; font-weight: bold; font-size: 12px; }
-.newTime {color: #CCCCCC; font-weight: bold; font-size: 12px; }
+.newDate {color: #fff; font-weight: normal; font-size: 110%; padding: 0 15px; line-height: 1.5em;}
+.newTime {color: #fff; font-weight: normal; font-size: 110%; padding: 0 15px; line-height: 1.5em;}
+.left { text-align: left; }
+.right { text-align: right; }
 -->
 </style>
 <!--head-->
 
 
 <!--body-->
-<table width="100%"  border="0" cellpadding="1" cellspacing="0" bgcolor="#276983" class="tableListings">
+<table width="100%" cellpadding="1" cellspacing="0" class="tableListings">
   <tr class="tableDate">
-    <td width="50%"><span class="newDate">[date]</span></td>
-    <td><div align="right" class="newTime">[time]</div></td>
+    <td width="75%"><span class="newDate">[date]</span></td>
+    <td class="right"><div class="newTime">[time]</div></td>
   </tr>
 </table>
 <table class="tableListings" [mouseover]>
   <tr>
-    <td width="12" align="left" valign="top" class="tableCategory s2[category]">&nbsp;</td>
-    <td align="left" valign="top" bgcolor="#FFFDF2" class="tableTitle">[title]<br>
+    <td width="15" valign="top" class="tableCategory s2[category]">&nbsp;</td>
+    <td valign="top" class="tableTitle">[title]<br>
     <span class="tableDescr">[categories][descr]</span></td>
   </tr>
 </table>
