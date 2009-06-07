@@ -1,5 +1,6 @@
 
-  </div></div>
+<div id="flash">&nbsp;</div>  
+</div></div>
   <div id="ft" class="content">
     <div id="copyright">Copyright &copy; <?=date("Y")?> The Entree Gallery</div>
     <div id="navigation" class="bottom">
