@@ -15,11 +15,11 @@
 		
 		protected function generate_select_with_opts($field, $value, $named_method_to_eval)
 		{			
-			$select_list	= 	$this->input_wrapper_start($field); 
-			$select_list	= "<select name='$field' id='$field' />"; 
-			$select_opts = eval( "return \$this->generate_$named_method_to_eval(\$value);" );
-			$select_list .= $select_opts;
-			$select_list .= "</select>";
+			$select_list	 = 	$this->input_wrapper_start($field); 
+			$select_list	.= "<select name='$field' id='$field' />"; 
+			$select_opts	 = eval( "return \$this->generate_$named_method_to_eval(\$value);" );
+			$select_list	.= $select_opts;
+			$select_list 	.= "</select>";
 			$select_list 	.= 	$this->input_wrapper_end();
 			return $select_list;
 		}
