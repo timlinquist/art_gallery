@@ -48,4 +48,6 @@
       </div>
     </div>
     <div id="bd"><div class="yui-g content">
+    <div class="flash">&nbsp;</div>  
+      
 		

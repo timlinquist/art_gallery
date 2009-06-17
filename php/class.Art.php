@@ -12,6 +12,7 @@ class Art {
     var $photo_file;
 		var $gallery;
     var $price;
+    var $inventory_number;
     var $status;
     var $paypal_link;
 
@@ -24,10 +25,11 @@ class Art {
         "medium_id" 	=> "select",
         "gallery" 		=> "select",
         "name" 				=> "text",
+        "price"       => "text",
+        "sold"        => "select",
+        "inventory_number" => "text",
         "description" => "textarea",
 				"photo_file"	=> "hidden"
-				//,
-				// "price"				=> "text",
 				// "status"			=> "status"
 				// "paypal_link"	=> "text"
       );
@@ -76,6 +78,17 @@ class Art {
         $this->id = $val;
     }
 
+    function get_sold()
+    {
+        return $this->sold;
+    }
+    
+
+    function set_sold( $val )
+    {
+        $this->sold = $val;
+    }
+
     function get_artist_id()
     {
         return $this->artist_id;
@@ -114,6 +127,16 @@ class Art {
     function set_gallery( $val )
     {
         $this->gallery = $val;
+    }
+
+    function get_inventory_number()
+    {
+        return $this->inventory_number;
+    }
+
+    function set_inventory_number( $val )
+    {
+        $this->inventory_number = $val;
     }
 
     function get_name()
@@ -195,15 +218,15 @@ class Art {
 
     function insertRecord()
     {
-        $query = 'INSERT INTO art ( id, artist_id, category_id, medium_id, name, description, gallery, photo_file, price, status, paypal_link ) VALUES ( 0, "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s" )';
-        $query = sprintf( $query, $this->artist_id, $this->category_id, $this->medium_id, $this->name, $this->description, $this->gallery, $this->photo_file, $this->price, $this->status, $this->paypal_link );
+        $query = 'INSERT INTO art ( id, artist_id, category_id, medium_id, name, description, gallery, photo_file, price, status, paypal_link, sold, inventory_number ) VALUES ( 0, "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s" )';
+        $query = sprintf( $query, $this->artist_id, $this->category_id, $this->medium_id, $this->name, $this->description, $this->gallery, $this->photo_file, $this->price, $this->status, $this->paypal_link, $this->sold, $this->inventory_number );
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
     }
 
     function updateRecord()
     {
-        $query = 'UPDATE art SET artist_id="%s", category_id="%s", medium_id="%s", name="%s", description="%s", gallery="%s", photo_file="%s", price="%s", status="%s", paypal_link="%s" WHERE id = %s';
-        $query = sprintf( $query, $this->artist_id, $this->category_id, $this->medium_id, $this->name, $this->description, $this->gallery, $this->photo_file, $this->price, $this->status, $this->paypal_link, $this->id );
+        $query = 'UPDATE art SET artist_id="%s", category_id="%s", medium_id="%s", name="%s", description="%s", gallery="%s", photo_file="%s", price="%s", status="%s", paypal_link="%s", sold="%s", inventory_number="%s" WHERE id = %s';
+        $query = sprintf( $query, $this->artist_id, $this->category_id, $this->medium_id, $this->name, $this->description, $this->gallery, $this->photo_file, $this->price, $this->status, $this->paypal_link, $this->sold, $this->inventory_number, $this->id );
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
     }
 

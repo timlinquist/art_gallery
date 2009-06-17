@@ -37,7 +37,7 @@
 			foreach( $categories as $category )
 			{ 
 				$cat_id= $category->get_id();				
-				$selected = ($cat_id==$cat_to_select) ? "selected='1'" : "";
+				$selected = ($cat_id==$cat_to_select) ? "selected='selected'" : "";
 				$options .= "<option value='".$category->get_id()."' $selected>".$category->get_name()."</option>"; 
 			}
 			return $options;
@@ -46,12 +46,12 @@
 		private function generate_artists($artist_to_select=null)
 		{
 			$finder= new Finders();
-			$artists= $finder->all_categories();
+			$artists= $finder->all_artists();
 			$options="";
 			foreach( $artists as $artist )
 			{ 
 				$artist_id= $artist->get_id();				
-				$selected = ($artist_id==$artist_to_select) ? "selected='1'" : "";
+				$selected = ($artist_id==$artist_to_select) ? "selected='selected'" : "";
 				$options .= "<option value='".$artist->get_id()."' $selected>".$artist->get_name()."</option>"; 
 			}
 			return $options;
@@ -65,7 +65,7 @@
 			foreach( $mediums as $medium )
 			{ 
 				$medium_id= $medium->get_id();				
-				$selected = ($medium_id==$medium_to_select) ? "selected='1'" : "";
+				$selected = ($medium_id==$medium_to_select) ? "selected='selected'" : "";
 				$options .= "<option value='".$medium->get_id()."' $selected>".$medium->get_name()."</option>"; 
 			}
 			return $options;
@@ -75,7 +75,7 @@
 			$options="";
 			foreach( $GLOBALS['galleries'] as $gallery )
 			{ 
-				$selected = ($gallery==$gallery_to_select) ? "selected='1'" : "";
+				$selected = ($gallery==$gallery_to_select) ? "selected='selected'" : "";
 				$options .= "<option value='$gallery' $selected>$gallery</option>"; 
 			}
 			return $options;

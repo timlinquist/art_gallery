@@ -13,12 +13,12 @@ function flash_error_message(msg){
 	flash_message("error", msg);
 }
 function flash_message(class_to_add, msg) {
-  $("#flash").html("")
+  $("div.flash").html("")
 	.removeClass("error notice")
   .addClass(class_to_add)
   .html(msg)
-  .animate({opacity: 1.0}, 3000)
-  .blindFadeToggle(2500);	
+  .animate({opacity: 1.0}, 5000)
+  .blindFadeToggle(1000);	
 }
 
 function delete_objects(object_name) 

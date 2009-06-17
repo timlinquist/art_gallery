@@ -61,7 +61,7 @@
 				return ($id !=null && $id != ""); 
 		}
 		protected function legend(){ return "OVERRIDE ME ( render_inputs() ) IN SUBCLASSES TO PRINT INPUTS FOR SPECIFIC CHILD FORM!"; }		
-		protected function submit_button(){ return "<div class='form_buttons'><input type='submit' value='Save' /></div>"; }
+		protected function submit_button(){ return "<div class='flash'>&nbsp;</div><div class='form_buttons'><input type='submit' value='Save' /></div>"; }
 		protected function hidden_input($field, $value)
 		{
 			return "<input type='hidden' name='$field' id='$field' value='$value' />"; 

@@ -163,3 +163,17 @@ div.artist {
   clear: both;
   padding: 10px 0 20px 0;
 }
+div.flash {
+  color: #000;
+  padding: .5em 1em;
+  text-align: center;
+  margin: 10px;
+}
+div.flash .error {
+  background: #ffbcbc;
+  border: 3px solid #b00;
+}
+div.flash .notice {
+  background: #89d86c;
+  border: 3px solid #086b00;
+}
