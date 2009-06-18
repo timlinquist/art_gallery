@@ -12,14 +12,13 @@
 		public function display_category( $category )
 		{
 			echo "<div id=\"category_".$category->get_id()."\" class='category'>"
-							. "<p><strong>Name:&nbsp;</strong><span>"
-							. $category->get_name()
+							."<div class='category_name'>".$category->get_name()."</div>"
 							.$this->buttons( $category->get_id() )
 					."</div>";
 		}
 		private function buttons($id)
 		{
-			return "<div id=\"edit_category_".$id."\">".$this->edit_button( $id )."</div>";
+			return "<div class='edit_category_button' id=\"edit_category_".$id."\">".$this->edit_button( $id )."</div>";
 						// . "<div id=\"delete_category_".$id."\" class='delete_category'>".$this->delete_button( $id )."</div>";
 		}
 		private function edit_button( $id )

@@ -16,7 +16,7 @@
 		$artist_display= new ArtistDisplay(true);
 		
 		$page= ( isset($_GET['page']) ) ? $_GET['page'] : 1;		
-		$pagedResults = new Paginated($artists, 10, $page);
+		$pagedResults = new Paginated($artists, 200, $page);
 
 		$paginated_results = "<div class='pagination'><ul>";
 
@@ -39,12 +39,12 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 			delete_objects("artist");
-			lightbox_photos();			
 
-      $("a.show_hide_link").click( function() {
+      $("a.show_artist_link").click( function() {
         id_parts = this.id.split('_');
-        artist_element_id = "p#artist_" + id_parts[1] + "_" + id_parts[2];
-        $(artist_element_id).toggle('slow');
+        artist_details_id = "div#artist_details_" + id_parts[3];
+        $(artist_details_id).toggle("slow");
+        console.log(this.id + " >> " + artist_details_id);
       });
 
 	});

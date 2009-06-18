@@ -6,17 +6,14 @@
 	require_once "./php/class.Art.php";
 	require_once "./php/class.Artists.php";
 
-	echo "<div><a href='artists.php'>View Artists</a></div>";
-	
 	if(isset($_GET['id'])){
 		$artist= new Artists($_GET['id']);
 		
 		if($artist->get_name() != '')
 		{
-			$artist_display= new ArtistDisplay();
-			$artist_display->display_artist( $artist );
-			
-			echo "<div id='art_container'>Art: ";
+      echo "<h1>".$artist->get_name()."</h1>";
+      echo "<div class='biography_link'><a class='button' href='artist_bio.php?id=".$artist->get_id()."'>biography</a></div>";
+			echo "<div id='art_container'>";
 				$finder = new Finders();
 				$art= $finder->all_art_by_artist($artist->get_id());	
 				if(count($art) > 0)

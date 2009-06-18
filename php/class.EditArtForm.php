@@ -80,6 +80,16 @@
 			}
 			return $options;
 		}
-	
+	  private function generate_sold($sold_to_select=null)
+    {
+      $options = "";
+      foreach( $sold as $key => $value )
+      {
+				$selected = ($key==$sold_to_select) ? "selected='selected'" : "";
+        $options .= "<option value='$key' $selected>$value</option>";
+      }
+      return $options;
+    }
+  
 	}
 ?>

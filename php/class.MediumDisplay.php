@@ -14,14 +14,13 @@
 		public function display_medium( $medium )
 		{
 			echo "<div id=\"medium_".$medium->get_id()."\" class='medium'>"
-							. "<p><strong>Name:&nbsp;</strong><span>"
-							. $medium->get_name()
+							."<div class='medium_name'>".$medium->get_name()."</div>"
 							.$this->buttons( $medium->get_id() )
 					."</div>";
 		}
 		private function buttons($id)
 		{
-			return "<div id=\"edit_medium_".$id."\">".$this->edit_button( $id )."</div>";
+			return "<div class='edit_medium_button' id=\"edit_medium_".$id."\">".$this->edit_button( $id )."</div>";
 						// . "<div id=\"delete_medium_".$id."\" class='delete_medium'>".$this->delete_button( $id )."</div>";
 		}
 		private function edit_button( $id )

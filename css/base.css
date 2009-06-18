@@ -85,6 +85,7 @@ fieldset {
   clear: both;
 }
 fieldset div {
+  display: block;
   clear: both;
   line-height: 2em;
   padding: 0 0 10px 0;
@@ -107,13 +108,10 @@ fieldset div > label:first-child {
 }
 
 label.error {
-  padding: 0 0 0 30px;
+  padding: 3px 0 3px 30px;
   margin: 0;
-  display: inline;
-  float: left;
   color: #600;
-  line-height: 2em;
-  width: 180px;
+  height: 30px;
   background: url('../images/delete.png') 3px 1px no-repeat;
 }
 
@@ -169,11 +167,67 @@ div.flash {
   text-align: center;
   margin: 10px;
 }
-div.flash .error {
+div.flash.error {
   background: #ffbcbc;
   border: 3px solid #b00;
 }
-div.flash .notice {
+div.flash.notice {
   background: #89d86c;
   border: 3px solid #086b00;
+}
+a.artist {
+  display: inline;
+  float: left;
+  width: 200px;
+}
+div.category, div.medium, div.artist_div {
+  display: block;
+  line-height: 30px;
+  width: 800px;
+  text-align: left;
+  border-bottom: 1px solid #666;
+  clear: both;
+  overflow: hidden;
+}
+div.category_name, div.medium_name, div.artist_name {
+  display: inline;
+  float: left;
+  line-height: 30px;
+}
+div.edit_category_button, div.edit_medium_button, div.edit_artist_button, div.delete_artist_button, div.show_artist_button {
+  display: inline;
+  float: left;
+  height: 26px;
+  width: 24px;
+  margin: 0;
+  padding: 4px 0 0 1em;
+}
+div.artist_details {
+  display: block;
+  clear: both;
+  padding: 1em;
+  text-align: justify;
+}
+div.bio_photo {
+  padding: 0 1em 1em 0;
+}
+div.art_piece {
+  width: 32%;
+  display: inline;
+  float: left;
+  height: 400px;
+}
+div.art_piece_details {
+  clear: both;
+}
+div.pagination {
+  display: block;
+  clear: both;
+  overflow: hidden;
+}
+div.biography_link, div.art_link {
+  display: block;
+  text-align: right;
+  clear: both;
+  overflow: hidden;
 }

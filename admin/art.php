@@ -6,7 +6,7 @@
 	$finder= new Finders();
 	$art= $finder->all_art();
 
-	echo "<a class='button' href='art_form.php' title='add art'>Add an art piece</a>";
+	echo "<div style='overflow: hidden; display: block; clear: both;'><a class='button' href='art_form.php' title='add art'>Add an art piece</a></div>";
 	
 	if( count($art) > 0 )
 	{
@@ -18,12 +18,12 @@
 		$page= ( isset($_GET['page']) ) ? $_GET['page'] : 1;		
 		$pagedResults = new Paginated($art, 10, $page);
 
-		$paginated_results = "<ul>";
+		$paginated_results = "<div class='pagination'><ul>";
 
 		while($row = $pagedResults->fetchPagedRow()) {	//when $row is false loop terminates
 			$paginated_results .= "<li>". $art_display->display_art_piece( $row ) ."</li>";
 		}
-		$paginated_results .= "</ul>";
+		$paginated_results .= "</ul></div>";
 		//important to set the strategy to be used before a call to fetchPagedNavigation
 		$pagedResults->setLayout(new DoubleBarLayout());
 		$paginated_results .= $pagedResults->fetchPagedNavigation();
@@ -37,9 +37,8 @@
 ?>
 <script type="text/javascript">
 	$(document).ready(function(){
-			delete_objects("art");
-			lightbox_photos();			
-		});
+		delete_objects("art");
+	});
 </script>
 
 <?php 

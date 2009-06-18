@@ -16,15 +16,13 @@
 		public function display_art_piece( $art_piece )
 		{
 			$admin_options= ($this->admin_access) ? $this->buttons( $art_piece->get_id() ) : "";
-			echo "<div id=\"art_".$art_piece->get_id()."\" class='art'>"
+			echo "<div id=\"art_".$art_piece->get_id()."\" class='art_piece'>"
 							.$this->display_art_photo( $art_piece )
-							. "<p><strong>Name:&nbsp;</strong><span>"
-							. $art_piece->get_name()
-							. "<p><strong>Category:&nbsp;</strong><span>"
-							. $this->get_category_name($art_piece)	
-							. "<p><strong>Gallery:&nbsp;</strong><span>"
-							. $art_piece->get_gallery()
+							. "<div class='art_piece_details'><strong>".$art_piece->get_name()."</strong><br />"
+//							. $this->get_medium_name($art_piece) .", ". $this->get_category_name($art_piece) ."<br />"
+			 				. "by ". $this->get_artist_name($art_piece)
 							.	$admin_options						
+							. "</div>"
 					."</div>";
 		}
 		
@@ -34,7 +32,7 @@
 			if($photo_file != '' && $photo_file != null)
 			{
 				$photo= new Photo( $photo_file);	
-				$full_size_for_lightbox= "<div class='lb_photo_wrapper'><a href=\"".$photo->full_size_path()."\">";
+				$full_size_for_lightbox= "<div class='lb_photo_wrapper'><a rel='lightbox-gallery' title=\"".$art_piece->get_name()."\" href=\"".$photo->full_size_path()."\">";
 				$thumbnail_img= "<img src=\"".$photo->thumb_path()."\" alt=\"".$art_piece->get_name()."\" title=\"".$art_piece->get_name()."\" /></a></div>";
 				return $full_size_for_lightbox.$thumbnail_img;
 			}
@@ -74,7 +72,7 @@
 		private function buttons($id)
 		{
 			return "<div id=\"edit_art_".$id."\" class='edit_button'>".$this->edit_button( $id )."</div>"
-						. "<div id=\"delete_art_".$id."\" class='delete_button'>".$this->delete_button( $id )."</div>";
+						. "<div id=\"delete_art_".$id."\" class='delete_art'>".$this->delete_button( $id )."</div>";
 		}
 		private function edit_button( $id )
 		{ 
@@ -82,7 +80,7 @@
 		}
 		private function delete_button( $id )
 		{
-			 return "<a href='#' title='delete art' id='delete_art_$id'><img src='../images/delete.png' title='delete art' alt='delete art' /></a>"; 
+			 return "<a href='#' title='delete art' id='delete_art_link_$id'><img src='../images/delete.png' title='delete art' alt='delete art' /></a>"; 
 		}
 	}
 ?>

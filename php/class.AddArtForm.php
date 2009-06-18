@@ -65,5 +65,15 @@
 			}
 			return $options;
 		}
+    private function generate_sold($sold_to_select=null)
+    {
+      $options = "";
+      foreach( $GLOBALS['sold'] as $key => $value )
+      {
+        $options .= "<option value='$key'>$value</option>";
+      }
+      return $options;
+    }
+
 	}
 ?>

@@ -78,7 +78,7 @@ class Artists {
 
     function get_biography()
     {
-        return $this->biography;
+        return stripslashes(nl2br($this->biography));
     }
 
     function set_biography( $val )
@@ -176,6 +176,27 @@ class Artists {
             $ids[] = $row['id'];
         return $ids;
     }
+
+    function get_email_link($email=null) 
+    {
+      if( $email == null )
+        $email = $this->get_email();
+      $href = $this->obfuscate('mailto:'.$email);
+      $link = $this->obfuscate($email);
+      $email_link = "<a href=\"$href\">$link</a>";
+      return $email_link;
+    }
+
+    function obfuscate($clear_text_email) 
+    {
+      $encoded_email = "";
+      $chars = str_split($clear_text_email);
+      foreach( $chars as $char ) {
+        $encoded_email .= "&#" .ord($char). ";";
+      }
+      return $encoded_email;
+    }
+
 }
 
 ?>

@@ -2,10 +2,6 @@ jQuery.fn.blindFadeToggle = function(speed, easing, callback) {
   return this.animate({opacity: 'toggle', height: 'toggle'}, speed, easing, callback);
 }
 
-function lightbox_photos() {
-	$('.lb_photo_wrapper a').lightBox();
-}
-
 function flash_notice_message(msg){
 	flash_message("notice", msg);
 }
@@ -13,7 +9,7 @@ function flash_error_message(msg){
 	flash_message("error", msg);
 }
 function flash_message(class_to_add, msg) {
-  $("div.flash").html("")
+  $("div.flash").stop().html("")
 	.removeClass("error notice")
   .addClass(class_to_add)
   .html(msg)

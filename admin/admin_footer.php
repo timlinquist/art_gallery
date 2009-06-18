@@ -3,6 +3,7 @@
     <div id="copyright">Copyright &copy; <?=date("Y")?> The Entree Gallery</div>
     <div id="navigation" class="bottom">
       <ul>
+        <li><a href="../index.php">home</a></li>
         <li><a href="categories.php">categories</a></li>
         <li><a href="mediums.php">mediums</a></li>
         <li><a href="artists.php">artists</a></li>

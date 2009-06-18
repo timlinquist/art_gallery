@@ -36,13 +36,11 @@
 
 <script type="text/javascript">
 	$(document).ready(function(){
-			lightbox_photos();			
-
-      $("a.show_hide_link").click( function() {
-        id_parts = this.id.split('_');
-        artist_element_id = "p#artist_" + id_parts[1] + "_" + id_parts[2];
-        $(artist_element_id).toggle('slow');
-      });
+    $("a.show_hide_link").click( function() {
+      id_parts = this.id.split('_');
+      artist_element_id = "p#artist_" + id_parts[1] + "_" + id_parts[2];
+      $(artist_element_id).toggle('slow');
+    });
 	});
 </script>
 

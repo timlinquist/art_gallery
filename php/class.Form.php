@@ -36,6 +36,9 @@
 					case "select":
 						switch($property)
 						{
+              case "sold":
+                $form_fields_to_render .= $this->generate_select_with_opts($property, $value_for_input, "sold");
+              break;
 							case "category_id":
 								$form_fields_to_render .= $this->generate_select_with_opts($property, $value_for_input, "categories");							
 							break;

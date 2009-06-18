@@ -18,16 +18,19 @@
 
 		public function display_artist( $artist )
 		{
-			$artist_name= ($this->admin_access) ? $artist->get_name() : $this->show_artist( $artist ) ;
-			
-			echo "<div id=\"artist_".$artist->get_id()."\" class='artist'>"
-			  .$this->display_artist_photo( $artist )
-				."<p style=\"\" id=\"artist_name_".$artist->get_id()."\"><strong>" .$artist_name. "</strong></p>"
-				."<p><a class=\"show_hide_link\" id=\"toggle_bio_".$artist->get_id()."\" href=\"javascript:void(0)\">biography</a>"
-				.$this->admin_options( $artist->get_id() )
-				."<p class=\"artist_bio\" id=\"artist_bio_".$artist->get_id()."\">".$this->clean_output($artist->get_biography()). "</p>\n"
-				."<p class=\"artist_contact\" id=\"artist_contact_".$artist->get_id()."\">".$artist->get_phone(). "<br />".$artist->get_email()."</p>\n"
-				."</div>";
+			echo $this->show_artist( $artist );
+		}
+		
+		public function display_artist_contact_info( $artist )
+		{
+		  $phone = $artist->get_phone();
+		  $email = $artist->get_email_link();
+      $contact_info = ""
+        . "<div class='artist_contact'>\n"
+        . "  <p>$phone</p>\n"
+        . "  <p>$email</p>\n"
+        . "</div>";
+      return $contact_info;
 		}
 		
 		public function display_artist_photo( $artist )
@@ -36,7 +39,7 @@
 			if($photo_file != '' && $photo_file != null)
 			{
 				$photo= new Photo( $photo_file );	
-				$full_size_for_lightbox= "<div class='lb_photo_wrapper'><a href=\"".$photo->full_size_path()."\">";
+				$full_size_for_lightbox= "<div class='bio_photo'><a rel='lightbox' href=\"".$photo->full_size_path()."\" title=\"".$artist->get_name()."\">";
 				$thumbnail_img= "<img src=\"".$photo->thumb_path()."\" alt=\"".$artist->get_name()."\" title=\"".$artist->get_name()."\" /></a></div>";
 				return $full_size_for_lightbox.$thumbnail_img;
 			}
@@ -44,16 +47,30 @@
 		
 		private function show_artist( $artist )
 		{
-			return "<a href='artist_show.php?id=" . $artist->get_id() . "'>" . $artist->get_name() . "</a>";
+		  if( $this->admin_access ) {
+			  return "<div id=\"artist_".$artist->get_id()."\" class='artist_div'>"
+							."  <div class='artist_name'>".$artist->get_name()."</div>"
+							.   $this->admin_options( $artist->get_id() )
+              .   "<div id=\"artist_details_".$artist->get_id()."\" class='artist_details' style='display: none;'>"
+              .   $this->display_artist_contact_info( $artist )
+              .   $this->display_artist_photo( $artist )
+              .   $artist->get_biography()
+              .   "</div>"
+					    ."</div>";
+		  }
+		  else {
+		    return "<a id='artist_".$artist->get_id()."' class='artist' href='artist_show.php?id=" . $artist->get_id() . "'>" . $artist->get_name() . "</a>";
+		  }
 		}
 
 		private function admin_options( $id )
 		{
 			if ($this->admin_access) 
 			{
-				return "<a style=\"padding-top: 15px;\" class=\"show_hide_link edit_button\" id=\"toggle_contact_".$id."\" href=\"javascript:void(0)\">contact info</a></p>"
-				      ."<div class=\"edit_button\" id=\"edit_artist_".$id."\">".$this->edit_button( $id )."</div>"
-				      ."<div class=\"delete_button\" id=\"delete_artist_".$id."\" class='delete_artist'>".$this->delete_button( $id )."</div>";
+				return "" //"<a style=\"padding-top: 15px;\" class=\"show_hide_link edit_button\" id=\"toggle_contact_".$id."\" href=\"javascript:void(0)\">contact info</a></p>"
+	            ."<div class=\"show_artist_button\" id=\"show_artist_".$id."\">".$this->show_button( $id )."</div>"
+		          ."<div class=\"edit_artist_button\" id=\"edit_artist_".$id."\">".$this->edit_button( $id )."</div>"
+				      ."<div class=\"delete_artist_button\" id=\"delete_artist_".$id."\" class='delete_artist'>".$this->delete_button( $id )."</div>";
 			}			
 		}				
 		private function edit_button( $id )
@@ -62,7 +79,11 @@
 		}
 		private function delete_button( $id )
 		{
-			 return "<a href='#' title='delete artist' id='delete_artist_link_$id'><img src='../images/delete.png' title='delete artist' alt='delete artist' /></a>"; 
+			 return "<a href='javascript:void(0)' title='delete artist' id='delete_artist_link_$id'><img src='../images/delete.png' title='delete artist' alt='delete artist' /></a>"; 
+		}
+		private function show_button( $id )
+		{
+			 return "<a href='javascript:void(0)' title='show artist' class='show_artist_link' id='show_artist_link_$id'><img src='../images/zoom.png' title='show artist' alt='show artist' /></a>"; 
 		}
 	}
 ?>
