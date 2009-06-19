@@ -30,6 +30,7 @@ function bind_pagination() {
 		   data: data,
 		   success: function(response){
 				$('#search_results').html(response);
+        jQuery("div.lb_photo_wrapper a").slimbox();
 				bind_pagination();
 		   }
 		 });	
@@ -63,7 +64,8 @@ function bind_search_submit() {
 	    beforeSubmit:  function(){ disable_form(); return true;}, 
 	    success: function(response){
 				$('#search_results').html(response);
-				bind_pagination()
+				bind_pagination();
+        jQuery("div.lb_photo_wrapper a").slimbox();
 	    	enable_form();
 			},
 			error: function(){ enable_form(); }
