@@ -25,7 +25,7 @@
 		public function render_form()
 		{
 			echo "<form id='art_search' action='./php/do_search.php' method='post'><fieldset>";
-			echo "<legend>Art Seach</legend>";
+			echo "<legend>Art Search</legend>";
 			echo "<input type='hidden' value='search' id='search' name='search' />";
 			echo "<input type='hidden' name='viewing_all' id='viewing_all' value='' />";
 			$this->generate_select_lists();
