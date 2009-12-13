@@ -148,10 +148,41 @@ div.art {
   float: left;
   padding-right: 15px;
 }
-div.pagination {
-  clear: both;
-  padding: 1em;
-  text-align: center;
+#pagination_wrapper {
+	display: block;
+	clear: both;
+	padding: 1em;
+	text-align: center;
+	font-size: 90%;
+}
+#paged_links li {
+	list-style-type: none;
+	display: inline;
+	margin: 3px 4px;
+}
+#pagination_wrapper a, #pagination_wrapper a:visited {
+	text-decoration: none;
+	padding: 3px 4px;
+	color: #aaa;
+	border: 1px solid #aaa;
+}
+#pagination_wrapper a:hover {
+	text-decoration: none;
+	border: 1px solid #fff;
+}
+#pagination_all {
+	padding-top: 10px;
+}
+#paged_links a.disabled, #paged_links a.disabled:hover, #paged_links a.disabled:visited {
+	color: #6c6863;
+	cursor: default;
+	border: 1px solid #6c6863;
+}
+#paged_links a.current {
+	background: #fff;
+	color: #6c6863;
+	cursor: default;
+	border: 1px solid #fff;
 }
 p.artist_bio, p.artist_contact {
   display: none;

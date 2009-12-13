@@ -31,8 +31,9 @@ function bind_pagination() {
 		   data: data,
 		   success: function(response){
 				$('#search_results').html(response);
-        jQuery("div.lb_photo_wrapper a").slimbox();
+        		jQuery("div.lb_photo_wrapper a").slimbox();
 				bind_pagination();
+				$.scrollTo("#search_results", 300);
 		   }
 		 });	
 		return false;	
@@ -65,6 +66,7 @@ function bind_viewing_all(){
 	$('#view_all').click(function(){
 		$('#viewing_all').val('viewing_all');
 		$('#art_search').submit();
+		$.scrollTo("#search_results", 400);
 		return false;
 	});
 }
