@@ -10,7 +10,7 @@
    <link rel="stylesheet" href="./css/slimbox2.css" type="text/css" media="screen" charset="utf-8" />
 	 <link rel="stylesheet" href="./css/base.css" type="text/css" media="screen" charset="utf-8" />	
 	 <link rel="stylesheet" href="./css/jquery.lightbox-0.5.css" type="text/css" media="screen" charset="utf-8" />	
-	 <?php $CSS=1; require("/home/entree/public_html/calendar/calendar.php"); ?>
+	 <?php $CSS=1; require($_SERVER['DOCUMENT_ROOT'] . "/calendar/calendar.php"); ?>
    
    <script type="text/javascript" charset="utf-8" src="./javascript/jquery-1.3.2.min.js"></script>
 	 <script type="text/javascript" src="./javascript/jquery.lightbox-0.5.pack.js"></script>
@@ -24,7 +24,7 @@
    <script type='text/javascript' src='./javascript/form.js'></script>
 </head>
 <body>
-  <?php $OL=1; require("/home/entree/public_html/calendar/calendar.php"); ?>
+  <?php $OL=1; require($_SERVER['DOCUMENT_ROOT'] . "/calendar/calendar.php"); ?>
 	<noscript>
 		<p style='font-size: 20px;'><strong>
 			We noticed that you do not have javascript turned on.  
