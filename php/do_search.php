@@ -28,17 +28,31 @@
 			//2. number of results per page (optional parameter. Default is 10)
 			//3. the current page (optional parameter. Default  is 1)
 			$pagedResults = new Paginated($art, 10, $page);
-
+			
+			//Render each art piece
 			$paginated_results .= "<ul>";
-
-			while($row = $pagedResults->fetchPagedRow()) {	//when $row is false loop terminates
-				$paginated_results .= "<li>". $art_display->display_art_piece( $row) ."</li>";
+			
+			if(isset($_POST["viewing_all"]) && $_POST["viewing_all"] != '')
+			{
+				foreach($art as $art_piece){ 
+					$paginated_results .= "<li>". $art_display->display_art_piece($art_piece) ."</li>";				
+				}				
 			}
-			$paginated_results .= "</ul>";
+			else
+			{
+				while($row = $pagedResults->fetchPagedRow()) {	//when $row is false loop terminates
+					$paginated_results .= "<li>". $art_display->display_art_piece( $row) ."</li>";
+				}
+			}
+			$paginated_results .= "</ul>";				
+			
 			//important to set the strategy to be used before a call to fetchPagedNavigation
 			$pagedResults->setLayout(new DoubleBarLayout());
 			$paginated_results .= $pagedResults->fetchPagedNavigation( $query_vars );
-			echo $paginated_results;
+			
+			$view_all= "<div id=\"pagination_all\"><a id='view_all' href=\"\">view all" . count($art) . " items</a></div>";
+			$paginated_results .= $view_all;
+			echo $paginated_results;				
 		}
 		elseif(count($art) > 0){
 			$art_display=	new ArtDisplay();

@@ -4,7 +4,8 @@ function unbind_selects_change_event() {
 }
 function unbind_search_submit() { $("#art_search").unbind('submit'); }
 function unbind_pagination_links() { $(".pagination").unbind('click'); }
-
+function unbind_viewing_all(){ $("#view_all").unbind('click'); }
+function reset_view_all(){ $('#viewing_all').val(''); }
 function process_response(response){
 	unbind_selects_change_event();
 	chopped_response= response.split("|");
@@ -46,16 +47,26 @@ function reset_form_click() {
 		 		unbind_selects_change_event();
 		 		unbind_pagination_links();
 		 		unbind_search_submit();
+				unbind_viewing_all();
 		 		reset_form(response);
 		 		bind_change_events();
 		 		bind_search_submit();
 		 		bind_pagination();
+				bind_viewing_all();
 		 }  
 	});		
 }
 
 function reset_form(response){
 	$("#art_search_container").html(response)
+}
+
+function bind_viewing_all(){
+	$('#view_all').click(function(){
+		$('#viewing_all').val('viewing_all');
+		$('#art_search').submit();
+		return false;
+	});
 }
 
 function bind_search_submit() {	
@@ -65,6 +76,8 @@ function bind_search_submit() {
 	    success: function(response){
 				$('#search_results').html(response);
 				bind_pagination();
+				bind_viewing_all();
+				reset_view_all();
         jQuery("div.lb_photo_wrapper a").slimbox();
 	    	enable_form();
 			},
