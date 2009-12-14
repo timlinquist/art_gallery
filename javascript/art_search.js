@@ -33,6 +33,7 @@ function bind_pagination() {
 				$('#search_results').html(response);
         jQuery("div.lb_photo_wrapper a").slimbox();
 				bind_pagination();
+				bind_viewing_all();
 		   }
 		 });	
 		return false;	
