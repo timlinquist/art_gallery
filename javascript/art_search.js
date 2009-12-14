@@ -31,9 +31,10 @@ function bind_pagination() {
 		   data: data,
 		   success: function(response){
 				$('#search_results').html(response);
-        		jQuery("div.lb_photo_wrapper a").slimbox();
+        jQuery("div.lb_photo_wrapper a").slimbox();
 				bind_pagination();
 				$.scrollTo("#search_results", 300);
+				bind_viewing_all();
 		   }
 		 });	
 		return false;	
