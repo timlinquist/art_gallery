@@ -2,6 +2,7 @@
 	require "./php/header.php";
 
 	require './php/class.ArtSearchForm.php';
+	echo "<script type='text/javascript' src='./javascript/jquery.scrollTo-min.js'></script>";
 	echo "<script type='text/javascript' src='./javascript/art_search.js'></script>";
 	$search_form= new ArtSearchForm();
 

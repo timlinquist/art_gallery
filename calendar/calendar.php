@@ -20,7 +20,7 @@ if (!isset($thisFile) || (isset($_GET['thisFile']) || isset($_POST['thisFile']))
 // SERVER (ROOT) PATH TO ESCAL FOLDER
 // This address should start and end with a "/" unless this is on a windows server where it will start with a drive letter;
 if (!isset($serverPath) || $serverPath!="../" || $getPaths==1) {
-$serverPath="/Users/andyd/Documents/clients/art_gallery/calendar/";
+$serverPath = $_SERVER['DOCUMENT_ROOT'] . "/calendar/";
 }
 
 // URL PATH TO ESCAL FOLDER

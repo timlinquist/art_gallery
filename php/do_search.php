@@ -30,27 +30,25 @@
 			$pagedResults = new Paginated($art, 10, $page);
 			
 			//Render each art piece
-			$paginated_results .= "<ul>";
-			
+
 			if(isset($_POST["viewing_all"]) && $_POST["viewing_all"] != '')
 			{
 				foreach($art as $art_piece){ 
-					$paginated_results .= "<li>". $art_display->display_art_piece($art_piece) ."</li>";				
+					$paginated_results .= $art_display->display_art_piece($art_piece);				
 				}				
 			}
 			else
 			{
 				while($row = $pagedResults->fetchPagedRow()) {	//when $row is false loop terminates
-					$paginated_results .= "<li>". $art_display->display_art_piece( $row) ."</li>";
+					$paginated_results .= $art_display->display_art_piece( $row);
 				}
 			}
-			$paginated_results .= "</ul>";				
 			
 			//important to set the strategy to be used before a call to fetchPagedNavigation
 			$pagedResults->setLayout(new DoubleBarLayout());
 			$paginated_results .= $pagedResults->fetchPagedNavigation( $query_vars );
 			
-			$view_all= "<div id=\"pagination_all\"><a id='view_all' href=\"\">view all" . count($art) . " items</a></div>";
+			$view_all= "<div id=\"pagination_all\"><a id='view_all' href=\"\">view all " . count($art) . " items</a></div>\n</div>\n";
 			$paginated_results .= $view_all;
 			echo $paginated_results;				
 		}
