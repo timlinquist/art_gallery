@@ -4,15 +4,15 @@ class DoubleBarLayout implements PageLayout {
 	
 	public function fetchPagedLinks($parent, $queryVars, $is_async=false) {
 		$currentPage = $parent->getPageNumber();
-		$str = "<div id='pagination_wrapper'>\n<div id='paged_links'>\n<ul>";
+		$str = "<div class='pagination_wrapper'>\n<div class='paged_links'>\n<ul>\n";
 		//write statement that handles the previous and next phases
 	   	//if it is not the first page then write previous to the screen
 		if(!$parent->isFirstPage()) {
 			$previousPage = $currentPage - 1;
-			$str .= "<li id=\"pagination_prev\"><a class='". self::LINK_CLASS. "' href=\"?page=$previousPage$queryVars\">&larr; prev</a></li>";
+			$str .= "<li class=\"pagination_prev\"><a class='". self::LINK_CLASS. "' href=\"?page=$previousPage$queryVars\">&larr; prev</a></li>\n";
 		}
 		else{
-			$str .= "<li id=\"pagination_prev\"><a class='disabled' href=\"#\">&larr; prev</a></li>";			
+			$str .= "<li class=\"pagination_prev\"><a class='disabled' href=\"#\">&larr; prev</a></li>\n";			
 		}
 
 		for($i = $currentPage - $parent->fetchNumberPages(); $i <= $parent->fetchNumberPages(); $i++) { 
@@ -22,16 +22,16 @@ class DoubleBarLayout implements PageLayout {
 				$str .= "<li><a class=\"current\" href=\"#\">$i</a></li>"; 
 			}
 			else { 
-				$str .= "<li><a class='". self::LINK_CLASS. "' href=\"?page=$i$queryVars\">$i</a></li>"; 
+				$str .= "<li><a class='". self::LINK_CLASS. "' href=\"?page=$i$queryVars\">$i</a></li>\n"; 
 			}
 		}
 
 		if(!$parent->isLastPage()) {
 			$nextPage = $currentPage + 1;
-			$str .= "<li id=\"pagination_next\"><a class='". self::LINK_CLASS. "' href=\"?page=$nextPage$queryVars\">next &rarr;</a></li>";
+			$str .= "<li class=\"pagination_next\"><a class='". self::LINK_CLASS. "' href=\"?page=$nextPage$queryVars\">next &rarr;</a></li>\n";
 		}
 		else{
-			$str .= "<li id=\"pagination_next\"><a class='disabled' href=\"#\">next &rarr;</a></li>";
+			$str .= "<li class=\"pagination_next\"><a class='disabled' href=\"#\">next &rarr;</a></li>\n";
 		}
 		
 		$str .= "</ul>\n</div>\n";

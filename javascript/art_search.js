@@ -4,7 +4,7 @@ function unbind_selects_change_event() {
 }
 function unbind_search_submit() { $("#art_search").unbind('submit'); }
 function unbind_pagination_links() { $(".pagination").unbind('click'); }
-function unbind_viewing_all(){ $("#view_all").unbind('click'); }
+function unbind_viewing_all(){ $("a.view_all").unbind('click'); }
 function reset_view_all(){ $('#viewing_all').val(''); }
 function process_response(response){
 	unbind_selects_change_event();
@@ -64,7 +64,7 @@ function reset_form(response){
 }
 
 function bind_viewing_all(){
-	$('#view_all').click(function(){
+	$('a.view_all').click(function(){
 		$('#viewing_all').val('viewing_all');
 		$('#art_search').submit();
 		$.scrollTo("#search_results", 400);

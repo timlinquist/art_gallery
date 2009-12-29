@@ -148,42 +148,6 @@ div.art {
   float: left;
   padding-right: 15px;
 }
-#pagination_wrapper {
-	display: block;
-	clear: both;
-	padding: 1em;
-	text-align: center;
-	font-size: 90%;
-}
-#paged_links li {
-	list-style-type: none;
-	display: inline;
-	margin: 3px 4px;
-}
-#pagination_wrapper a, #pagination_wrapper a:visited {
-	text-decoration: none;
-	padding: 3px 4px;
-	color: #aaa;
-	border: 1px solid #aaa;
-}
-#pagination_wrapper a:hover {
-	text-decoration: none;
-	border: 1px solid #fff;
-}
-#pagination_all {
-	padding-top: 10px;
-}
-#paged_links a.disabled, #paged_links a.disabled:hover, #paged_links a.disabled:visited {
-	color: #6c6863;
-	cursor: default;
-	border: 1px solid #6c6863;
-}
-#paged_links a.current {
-	background: #fff;
-	color: #6c6863;
-	cursor: default;
-	border: 1px solid #fff;
-}
 p.artist_bio, p.artist_contact {
   display: none;
   clear: both;
@@ -261,4 +225,49 @@ div.biography_link, div.art_link {
   text-align: right;
   clear: both;
   overflow: hidden;
+}
+#art_search_container {
+	margin-bottom: 20px;
+}
+#search_results {
+	padding: 10px;
+}
+#search_results .pagination_wrapper {
+	display: block;
+	clear: both;
+	padding: 1em;
+	text-align: center;
+	font-size: 90%;
+}
+#search_results .paged_links li {
+	text-decoration: none;
+	list-style-type: none;
+	display: inline;
+	margin: 3px 4px;
+}
+#search_results .pagination_wrapper a, #search_results .pagination_wrapper a:visited {
+	text-decoration: none;
+	padding: 3px 4px;
+	color: #aaa;
+	border: 1px solid #aaa;
+}
+#search_results .pagination_wrapper a:hover {
+	text-decoration: none;
+	border: 1px solid #fff;
+}
+#search_results .pagination_all {
+	padding-top: 10px;
+}
+#search_results .paged_links a.disabled, #search_results .paged_links a.disabled:hover, #search_results .paged_links a.disabled:visited {
+	text-decoration: none;
+	color: #6c6863;
+	cursor: default;
+	border: 1px solid #6c6863;
+}
+#search_results .paged_links a.current {
+	text-decoration: none;
+	background: #fff;
+	color: #6c6863;
+	cursor: default;
+	border: 1px solid #fff;
 }
