@@ -271,3 +271,21 @@ div.biography_link, div.art_link {
 	cursor: default;
 	border: 1px solid #fff;
 }
+span.red_dot {
+  vertical-align: middle;
+  padding-left: 10px;
+}
+#powered-by {
+  margin-top: 2em;
+}
+#powered-by p {
+  color: #b3a9a0;
+}
+#powered-by a {
+  color: #b3a9a0;
+  text-decoration: none;
+}
+#powered-by a:hover {
+  color: #d4c9c0;
+  text-decoration: underline;
+}
