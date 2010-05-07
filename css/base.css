@@ -173,7 +173,7 @@ div.flash.notice {
 a.artist {
   display: inline;
   float: left;
-  width: 200px;
+  width: 280px;
 }
 div.category, div.medium, div.artist_div {
   display: block;
@@ -202,6 +202,21 @@ div.artist_details {
   clear: both;
   padding: 1em;
   text-align: justify;
+}
+span.artist_thumbnail_path {
+	display: none;
+}
+div#artist_bio_photo, div#artist_list_right, div#artist_list_left {
+	display: block;
+	width: 30%;
+	float: left;
+	overflow: hidden;
+}
+div#artist_bio_photo {
+	border: 1px solid #4F473F;
+}
+div#artist_list_left {
+	width: 33%;
 }
 div.bio_photo {
   padding: 0 1em 1em 0;
