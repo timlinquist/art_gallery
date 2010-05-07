@@ -12,7 +12,7 @@
 	 <link rel="stylesheet" href="./css/jquery.lightbox-0.5.css" type="text/css" media="screen" charset="utf-8" />	
 	 <?php $CSS=1; require($_SERVER['DOCUMENT_ROOT'] . "/calendar/calendar.php"); ?>
    
-   <script type="text/javascript" charset="utf-8" src="./javascript/jquery-1.3.2.min.js"></script>
+   <script type="text/javascript" charset="utf-8" src="./javascript/jquery-1.4.2.min.js"></script>
 	 <script type="text/javascript" src="./javascript/jquery.lightbox-0.5.pack.js"></script>
 	 <script type="text/javascript" charset="utf-8" src="./javascript/slimbox2.js"></script>
    <script type="text/javascript" charset="utf-8" src="./javascript/jquery.form.js"></script>

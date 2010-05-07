@@ -214,6 +214,7 @@ div#artist_bio_photo, div#artist_list_right, div#artist_list_left {
 }
 div#artist_bio_photo {
 	border: 1px solid #4F473F;
+	min-height: 300px;
 }
 div#artist_list_left {
 	width: 33%;

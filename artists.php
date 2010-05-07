@@ -35,17 +35,17 @@
 
 <script type="text/javascript">
 	$(document).ready(function(){
-    $("a.show_hide_link").click( function() {
-      id_parts = this.id.split('_');
-      artist_element_id = "p#artist_" + id_parts[1] + "_" + id_parts[2];
-      $(artist_element_id).toggle('slow');
-    });
-    $("a.artist").mouseover( function() {
-      id_parts = this.id.split('_');
-      artist_thumb_path_id = "artist_thumbnail_path_"+id_parts[1];
-      thumbnail = $("span#"+artist_thumb_path_id).html();
-      $("div#artist_bio_photo").html("<img alt='' src='"+ thumbnail +"' />")
-    })
+		$("a.show_hide_link").click( function() {
+			id_parts = this.id.split('_');
+			artist_element_id = "p#artist_" + id_parts[1] + "_" + id_parts[2];
+			$(artist_element_id).toggle('slow');
+		});
+		$("a.artist").mouseover( function() {
+			id_parts = this.id.split('_');
+			artist_thumb_path_id = "artist_thumbnail_path_"+id_parts[1];
+			thumbnail = $("span#"+artist_thumb_path_id).html();
+			$("div#artist_bio_photo img").attr("src", thumbnail);
+		});
 	});
 </script>
 
