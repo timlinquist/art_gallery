@@ -32,11 +32,28 @@
 			$photo_file= $art_piece->get_photo_file();
 			if($photo_file != '' && $photo_file != null)
 			{
-				$photo= new Photo( $photo_file);	
-				$full_size_for_lightbox= "<div class='lb_photo_wrapper'><a rel='lightbox-gallery' title=\"".$art_piece->get_name()."\" href=\"".$photo->full_size_path()."\">";
+        $sold = ($art_piece->get_sold() ? "<span class='red_dot'><img src='./images/red_dot_white_bg.png' width='16' height='16' alt='SOLD' title='SOLD' /></span>" : $art_piece->get_price() );
+        $description = htmlentities(stripslashes(eregi_replace("\\n","<br />",$art_piece->get_description())), ENT_QUOTES);
+        $lightbox_caption = ""
+          . $this->get_artist_name($art_piece) . "<br />"
+          . $art_piece->get_name() . " &nbsp;".$sold."<br />"
+          . $this->get_medium_name($art_piece) . "<br />"
+          . $description . "<br />"
+          . $art_piece->get_inventory_number() . "<br />"
+          . "<a href='&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#105;&#110;&#102;&#111;&#64;&#101;&#110;&#116;&#114;&#101;&#101;&#103;&#97;&#108;&#108;&#101;&#114;&#121;&#46;&#99;&#111;&#109;?subject=WEB+INQUIRY+-+".$art_piece->get_inventory_number()."'>inquire</a>";
+				$photo= new Photo( $photo_file);
+				$full_size_for_lightbox= "<div class=\"lb_photo_wrapper\"><a rel=\"lightbox-gallery\" title=\"$lightbox_caption\" href=\"".$photo->full_size_path()."\">";
 				$thumbnail_img= "<img src=\"".$photo->thumb_path()."\" alt=\"".$art_piece->get_name()."\" title=\"".$art_piece->get_name()."\" /></a></div>";
 				return $full_size_for_lightbox.$thumbnail_img;
 			}
+			// $photo_file= $art_piece->get_photo_file();
+			// if($photo_file != '' && $photo_file != null)
+			// {
+			// 	$photo= new Photo( $photo_file);	
+			// 	$full_size_for_lightbox= "<div class='lb_photo_wrapper'><a rel='lightbox-gallery' title=\"".$art_piece->get_name()."\" href=\"".$photo->full_size_path()."\">";
+			// 	$thumbnail_img= "<img src=\"".$photo->thumb_path()."\" alt=\"".$art_piece->get_name()."\" title=\"".$art_piece->get_name()."\" /></a></div>";
+			// 	return $full_size_for_lightbox.$thumbnail_img;
+			// }
 		}
 		
 		private function get_category_name($art_piece)
