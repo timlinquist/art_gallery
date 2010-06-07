@@ -141,7 +141,7 @@ class Art {
 
     function get_name()
     {
-        return $this->name;
+        return stripslashes($this->name);
     }
 
     function set_name( $val )
@@ -219,14 +219,14 @@ class Art {
     function insertRecord()
     {
         $query = 'INSERT INTO art ( id, artist_id, category_id, medium_id, name, description, gallery, photo_file, price, status, paypal_link, sold, inventory_number ) VALUES ( 0, "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s", "%s" )';
-        $query = sprintf( $query, $this->artist_id, $this->category_id, $this->medium_id, $this->name, $this->description, $this->gallery, $this->photo_file, $this->price, $this->status, $this->paypal_link, $this->sold, $this->inventory_number );
+        $query = sprintf( $query, $this->artist_id, $this->category_id, $this->medium_id, stripslashes($this->name), stripslashes($this->description), $this->gallery, $this->photo_file, $this->price, $this->status, $this->paypal_link, $this->sold, $this->inventory_number );
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
     }
 
     function updateRecord()
     {
         $query = 'UPDATE art SET artist_id="%s", category_id="%s", medium_id="%s", name="%s", description="%s", gallery="%s", photo_file="%s", price="%s", status="%s", paypal_link="%s", sold="%s", inventory_number="%s" WHERE id = %s';
-        $query = sprintf( $query, $this->artist_id, $this->category_id, $this->medium_id, $this->name, $this->description, $this->gallery, $this->photo_file, $this->price, $this->status, $this->paypal_link, $this->sold, $this->inventory_number, $this->id );
+        $query = sprintf( $query, $this->artist_id, $this->category_id, $this->medium_id, stripslashes($this->name), stripslashes($this->description), $this->gallery, $this->photo_file, $this->price, $this->status, $this->paypal_link, $this->sold, $this->inventory_number, $this->id );
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
     }
 

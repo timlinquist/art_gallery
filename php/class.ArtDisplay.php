@@ -16,12 +16,13 @@
 		public function display_art_piece( $art_piece )
 		{
 			$admin_options= ($this->admin_access) ? $this->buttons( $art_piece->get_id() ) : "";
+      $sold = ($art_piece->get_sold() ? "<span class='red_dot'><img src='./images/red_dot.png' width='16' height='16' alt='SOLD' title='SOLD' /></span>" : "" );
 			echo "<div id=\"art_".$art_piece->get_id()."\" class='art_piece'>"
 							.$this->display_art_photo( $art_piece )
 							. "<div class='art_piece_details'><strong>".$art_piece->get_name()."</strong><br />"
-//							. $this->get_medium_name($art_piece) .", ". $this->get_category_name($art_piece) ."<br />"
 			 				. "by ". $this->get_artist_name($art_piece)
-							.	$admin_options						
+			 				. $sold
+							.	$admin_options
 							. "</div>"
 					."</div>";
 		}
