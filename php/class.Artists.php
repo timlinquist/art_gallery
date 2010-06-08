@@ -156,6 +156,7 @@ class Artists {
     {
 				$id= mysql_real_escape_string($id);
         $query = "DELETE FROM artists WHERE id = $id";
+echo $query;
         $result = mysql_query( $query ) or die( mysql_error() . "<br />Here is the query that failed:<br />\n" . $query );
     }
 

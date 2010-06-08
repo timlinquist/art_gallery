@@ -70,7 +70,7 @@
 				return "" //"<a style=\"padding-top: 15px;\" class=\"show_hide_link edit_button\" id=\"toggle_contact_".$id."\" href=\"javascript:void(0)\">contact info</a></p>"
 	            ."<div class=\"show_artist_button\" id=\"show_artist_".$id."\">".$this->show_button( $id )."</div>"
 		          ."<div class=\"edit_artist_button\" id=\"edit_artist_".$id."\">".$this->edit_button( $id )."</div>"
-				      ."<div class=\"delete_artist_button\" id=\"delete_artist_".$id."\" class='delete_artist'>".$this->delete_button( $id )."</div>";
+				      ."<div class=\"delete_artist\" id=\"delete_artist_".$id."\" class='delete_artist'>".$this->delete_button( $id )."</div>";
 			}			
 		}				
 		private function edit_button( $id )
