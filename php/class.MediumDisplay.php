@@ -20,8 +20,8 @@
 		}
 		private function buttons($id)
 		{
-			return "<div class='edit_medium_button' id=\"edit_medium_".$id."\">".$this->edit_button( $id )."</div>";
-						// . "<div id=\"delete_medium_".$id."\" class='delete_medium'>".$this->delete_button( $id )."</div>";
+			return "<div class='edit_medium_button' id=\"edit_medium_".$id."\">".$this->edit_button( $id )."</div>"
+						 . "<div id=\"delete_medium_".$id."\" class='delete_medium'>".$this->delete_button( $id )."</div>";
 		}
 		private function edit_button( $id )
 		{ 

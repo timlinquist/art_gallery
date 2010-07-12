@@ -45,6 +45,21 @@
 			}
 		}
 		
+		public function get_artist_thumbnail_path( $artist )
+		{
+			$photo_file= $artist->get_photo_file();
+			if($photo_file != '' && $photo_file != null)
+			{
+				$photo= new Photo( $photo_file );	
+        return $photo->thumb_path();
+		  }
+		}
+		
+    public function get_artist_link_in_li( $artist ) {
+      return "<li><a id='artist_".$artist->get_id()."' class='artist' href='artist_show.php?id=" . $artist->get_id() . "'>" . $artist->get_name() . "</a></li><span class='artist_thumbnail_path' id='artist_thumbnail_path_".$artist->get_id()."'>".$this->get_artist_thumbnail_path($artist)."</span>\n";
+    }
+		
+		
 		private function show_artist( $artist )
 		{
 		  if( $this->admin_access ) {
